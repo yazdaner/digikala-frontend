@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   css:[
-    'bootstrap/dist/css/bootstrap.rtl.css'
+    'bootstrap/dist/css/bootstrap.rtl.css',
+    '~/assets/main.css',
+    '~/assets/shop.css',
   ]
 })

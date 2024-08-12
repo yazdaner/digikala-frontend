@@ -1,4 +1,7 @@
 <template>
+    <h1>
+        یزدان
+    </h1>
     {{theme}}
 </template>
 <script setup>
