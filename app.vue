@@ -1,7 +1,9 @@
 <template>
     <div>
-        <nuxt-page />
-    </div>
+        <nuxt-layout>
+            <nuxt-page />
+        </nuxt-layout>
+</div>
 </template>
 <script setup>
 const theme = ref(useState("theme"));
