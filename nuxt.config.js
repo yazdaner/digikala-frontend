@@ -6,5 +6,11 @@ export default defineNuxtConfig({
     'bootstrap/dist/css/bootstrap.rtl.css',
     '~/assets/main.css',
     '~/assets/shop.css',
-  ]
+  ],
+  runtimeConfig :{
+    public : {
+        serverUrl : "http://127.0.0.1:8000/",
+        api : "http://127.0.0.1:8000/api",
+    }
+  }
 })

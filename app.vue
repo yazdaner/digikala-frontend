@@ -4,7 +4,7 @@
             <div v-if="pending"></div>
             <nuxt-page v-else />
         </nuxt-layout>
-</div>
+    </div>
 </template>
 <script setup>
 const theme = ref(useState("theme"));
@@ -15,6 +15,8 @@ onMounted(() => {
     });
 });
 
-const {data:shopSetting,pending} = await useFetch('http://127.0.0.1:8000/api/setting/shop');
-useState('shopSetting',()=>shopSetting);
+const { data: shopSetting, pending } = await useFetch(
+    useRuntimeConfig().public.api + "/setting/shop"
+);
+useState("shopSetting", () => shopSetting);
 </script>
