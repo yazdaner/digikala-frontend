@@ -1,4 +1,5 @@
 .desktop-header-mega-menu{
+    display: flex;
     position: absolute;
     width: calc(100% - 40px);
     right: 20px;
@@ -7,4 +8,9 @@
     z-index: 2000;
     border-radius: 0 0 5px 5px;
     height: 480px;
+}
+
+.desktop-header-mega-menu .right-list{
+    width: 250px;
+    height: 100%;
 }
