@@ -1,0 +1,10 @@
+.desktop-header-mega-menu{
+    position: absolute;
+    width: calc(100% - 40px);
+    right: 20px;
+    left: 20px;
+    background-color: #f0f0f1;
+    z-index: 2000;
+    border-radius: 0 0 5px 5px;
+    height: 480px;
+}

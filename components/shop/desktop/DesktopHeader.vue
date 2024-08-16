@@ -19,7 +19,7 @@
 
         <div class="d-flex w-100">
             <ul class="header-navigation d-flex">
-                <li>
+                <li @mouseenter="showMegaMenu" @mouseleave="hideMegaMenu">
                     <a class="text-bold text-dark fs-16">
                         <fa-icon class="pl-5px" :icon="['fas', 'bars']" />
                         <span>دسته بندی کالاها</span>
@@ -43,7 +43,10 @@
 
                 <li>
                     <nuxt-link to="/">
-                        <fa-icon class="pl-5px" :icon="['fas', 'fire-flame-curved']" />
+                        <fa-icon
+                            class="pl-5px"
+                            :icon="['fas', 'fire-flame-curved']"
+                        />
                         <span>پرفروش‌ ترین‌ها</span>
                     </nuxt-link>
                 </li>
@@ -74,4 +77,14 @@
 import FastProductsSearch from "./FastProductsSearch.vue";
 import MegaMenu from "./MegaMenu.vue";
 const shopSetting = useState("shopSetting");
+
+
+const megaMenu = ref(false);
+provide('megaMenu',megaMenu);
+function showMegaMenu() {
+megaMenu.value = true;
+}
+function hideMegaMenu() {
+megaMenu.value = false;
+}
 </script>
