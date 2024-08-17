@@ -18,9 +18,13 @@
                 </ul>
             </div>
             <div class="left-list" v-if="selectedCatrgory != null">
-                <nuxt-link to="/">
+                <nuxt-link to="/" class="all-products-category">
                     <span>همه محصولات </span>
                     <span>{{ selectedCatrgory.name }}</span>
+                    <fa-icon
+                                :icon="['fas', 'angle-left']"
+                                class="pr-5px fs-10"
+                            />
                 </nuxt-link>
                 <ul class="none-list-style">
                     <template
@@ -33,7 +37,7 @@
                             <span>{{ child1.name }}</span>
                             <fa-icon
                                 :icon="['fas', 'angle-left']"
-                                class="pr-5px"
+                                class="pr-5px fs-10"
                             />
                         </li>
 
@@ -61,7 +65,8 @@
 const { data: categories, pending } = await useFetch(
     useRuntimeConfig().public.api + "/categories/all"
 );
-const showMegaMenu = inject("megaMenu");
+// const showMegaMenu = inject("megaMenu");
+const showMegaMenu = true;
 const selectedCatrgory = ref(null);
 
 function getChildCategory(id) {
