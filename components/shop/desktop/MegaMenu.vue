@@ -7,10 +7,10 @@
                         <li
                             v-if="category.parent_id == 0"
                             @mouseenter="selectedCatrgory = category"
-                            @mouseleave="selectedCatrgory = null"
+                            :class="[selectedCatrgory == category ? 'active' : '']"
                         >
                             <nuxt-link to="/">
-                                <fa-icon :icon="getIcon(category.icon)" />
+                                <fa-icon :icon="category.icon" class="pl-5px" />
                                 <span>{{ category.name }}</span>
                             </nuxt-link>
                         </li>
@@ -24,11 +24,33 @@
                 </nuxt-link>
                 <ul class="none-list-style">
                     <template
-                        v-for="child1 in getChildCategory(selectedCatrgory.id)"
+                        v-for="(child1, key) in getChildCategory(
+                            selectedCatrgory.id
+                        )"
+                        :key="key"
                     >
-                        <li>
-                            {{ child1.name }}
+                        <li class="main-group">
+                            <span>{{ child1.name }}</span>
+                            <fa-icon
+                                :icon="['fas', 'angle-left']"
+                                class="pr-5px"
+                            />
                         </li>
+
+                        <template
+                            v-for="(child2, key2) in getChildCategory(
+                                child1.id
+                            )"
+                            :key="key2"
+                        >
+                            <li v-if="!child2.nonsignificant">
+                                <nuxt-link
+                                    :to="child2.url == null ? '/search/'+child1.slug+'/'+child2.slug : child2.url"
+                                >
+                                    <span>{{ child2.name }}</span>
+                                </nuxt-link>
+                            </li>
+                        </template>
                     </template>
                 </ul>
             </div>
@@ -45,18 +67,12 @@ const selectedCatrgory = ref(null);
 function getChildCategory(id) {
     let list = [];
 
-    categories.value.forEach(category => {
-        if(category.parent_id == id){
+    categories.value.forEach((category) => {
+        if (category.parent_id == id) {
             list.push(category);
         }
     });
     return list;
-}
-
-function getIcon(icon){
-    console.log(icon);
-    console.log(typeof(icon));
-    return icon;
 }
 </script>
 <style>

@@ -73,7 +73,9 @@ body {
 .pl-5px{
     padding-left: 5px !important;
 }
-
+.pr-5px{
+    padding-right: 5px !important;
+}
 .none-list-style{
     list-style: none;
 }
