@@ -21,22 +21,22 @@
             <ul class="header-navigation d-flex">
                 <li @mouseenter="showMegaMenu" @mouseleave="hideMegaMenu">
                     <a class="text-bold text-dark fs-16">
-                        <fa-icon class="pl-5px" :icon="['fas', 'bars']" />
+                        <fa-icon class="pl-5px color-gray-2" :icon="['fas', 'bars']" />
                         <span>دسته بندی کالاها</span>
                     </a>
                     <mega-menu />
                 </li>
 
-                <li>
+                <li class="severense-line">
                     <nuxt-link to="/">
-                        <fa-icon class="pl-5px" :icon="['fas', 'percent']" />
+                        <fa-icon class="pl-5px color-gray-2" :icon="['fas', 'percent']" />
                         <span>شگفت‌ انگیزها</span>
                     </nuxt-link>
                 </li>
 
                 <li>
                     <nuxt-link to="/">
-                        <fa-icon class="pl-5px" :icon="['fas', 'store-alt']" />
+                        <fa-icon class="pl-5px color-gray-2" :icon="['fas', 'store-alt']" />
                         <span>سوپر مارکت</span>
                     </nuxt-link>
                 </li>
@@ -44,7 +44,7 @@
                 <li>
                     <nuxt-link to="/">
                         <fa-icon
-                            class="pl-5px"
+                            class="pl-5px color-gray-2"
                             :icon="['fas', 'fire-flame-curved']"
                         />
                         <span>پرفروش‌ ترین‌ها</span>
@@ -53,12 +53,12 @@
 
                 <li>
                     <nuxt-link to="/">
-                        <fa-icon class="pl-5px" :icon="['fas', 'gift']" />
+                        <fa-icon class="pl-5px color-gray-2" :icon="['fas', 'gift']" />
                         <span>تخفیف‌ ها و پیشنهاد ها</span>
                     </nuxt-link>
                 </li>
 
-                <li>
+                <li class="severense-line">
                     <nuxt-link to="/">
                         <span>سوالی دارید؟</span>
                     </nuxt-link>
@@ -79,8 +79,9 @@ import MegaMenu from "./MegaMenu.vue";
 const shopSetting = useState("shopSetting");
 
 
-const megaMenu = ref(false);
-provide('megaMenu',megaMenu);
+const megaMenu = ref(useState('megaMenu'));
+megaMenu.value = false;
+
 function showMegaMenu() {
 megaMenu.value = true;
 }

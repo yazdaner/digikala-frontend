@@ -1,13 +1,13 @@
 .desktop-header-mega-menu{
     display: flex;
     position: absolute;
-    width: calc(100% - 40px);
+    width: calc(80% - 40px);
     right: 20px;
     left: 20px;
     z-index: 2000;
     border-radius: 0 0 5px 5px;
     height: 480px;
-    margin-top: 15px;
+    padding-top: 10px;
 }
 
 .desktop-header-mega-menu .right-list{
@@ -15,6 +15,7 @@
     height: 100%;
     border-left: 1px solid #d5d5d5;
     background-color: #f0f0f1;
+    overflow:auto !important;
 }
 
 
@@ -53,6 +54,12 @@
     color: black !important;
     display: flex;
     align-items: center;
+    padding-bottom: 15px;
+}
+
+.desktop-header-mega-menu .left-list .main-group a{
+    color: black !important;
+    font-weight: bold;
 }
 
 .desktop-header-mega-menu .left-list .main-group:before {
@@ -64,20 +71,35 @@
     background-color: #e9054d;
 }
 
+.header-navigation .severense-line{
+    display: flex;
+    align-items: center;
+}
+
+.header-navigation .severense-line:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 16px;
+    margin-left: 10px;
+    background-color: #cdcdcd;
+}
+
 .desktop-header-mega-menu .left-list ul{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     flex-direction: column;
-    height: 400px;
+    height: 100%;
 }
 
 .desktop-header-mega-menu .left-list{
-    width: calc(80% - 250px);
+    width: calc(100% - 250px);
     padding: 20px;
     background-color: white;
     box-shadow: 0px 0px 4px 0px #d0d0d0;
     border-bottom-left-radius: 10px;
+    overflow:auto !important;
 }
 
 .desktop-header-mega-menu .left-list ul li{

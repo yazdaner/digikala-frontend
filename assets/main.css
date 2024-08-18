@@ -54,6 +54,10 @@ body {
     color: #81858b;
 }
 
+.color-gray-2 {
+    color: #62666d !important;
+}
+
 .b-color-gray {
     background-color: #f0f0f1;
 }
@@ -61,20 +65,6 @@ body {
 .text-bold {
     font-weight: bold;
 }
-
-.header-navigation{
-    list-style: none !important;
-    margin: 5px 0 0 !important;
-}
-
-.header-navigation li{
-   padding: 10px;
-}
-
-.header-navigation li a{
-    color: #62666d;
-    font-size: 14px;
- }
 
 .pl-5px{
     padding-left: 5px !important;

@@ -5,6 +5,37 @@
     background-color: #f0f0f1;
 }
 
-.theme-header .logo img{
+.theme-header .logo img {
     width: 120px;
+}
+
+.theme-header {
+    z-index: 100;
+    position: fixed;
+    background: white;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.header-navigation {
+    list-style: none !important;
+    margin: 5px 0 0 !important;
+    padding-right: 0 !important;
+}
+
+.header-navigation li {
+    padding: 10px;
+}
+
+.header-navigation li a {
+    color: #62666d;
+    font-size: 14px;
+}
+
+.black-cover {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3) !important;
 }
