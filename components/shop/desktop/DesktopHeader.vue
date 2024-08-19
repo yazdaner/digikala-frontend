@@ -18,6 +18,7 @@
         </div>
 
         <div class="d-flex w-100">
+            <div class="hover-line"><div></div></div>
             <ul class="header-navigation d-flex">
                 <li @mouseenter="showMegaMenu" @mouseleave="hideMegaMenu">
                     <a class="text-bold text-dark fs-16">
@@ -88,4 +89,21 @@ megaMenu.value = true;
 function hideMegaMenu() {
 megaMenu.value = false;
 }
+
+onMounted(() => {
+   document.querySelectorAll('.theme-header .header-navigation li').forEach(el => {
+    el.addEventListener('mouseenter',function(){
+        const li_width = el.offsetWidth;
+        const full_width = document.querySelector('.theme-header').clientWidth;
+        const right = full_width - li_width - el.offsetLeft;
+        document.querySelector('.theme-header .hover-line').style.width = li_width+'px';
+        document.querySelector('.theme-header .hover-line').style.transform = 'scaleX(1)';
+        document.querySelector('.theme-header .hover-line').style.right = right+'px';
+    });
+    el.addEventListener('mouseleave',function(){
+        document.querySelector('.theme-header .hover-line').style.transform = 'scaleX(0)';
+    });
+   }); 
+});
+
 </script>
