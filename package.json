@@ -15,8 +15,10 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "axios": "^1.7.4",
     "bootstrap": "^5.3.3",
     "nuxt": "^3.12.4",
+    "nuxt-swiper": "^1.2.2",
     "vue": "latest"
   }
 }

@@ -1,5 +1,6 @@
 <template>
-    <header class="theme-header w-100">
+    <div class="header-container">
+        <header class="theme-header w-100">
         <div class="w-100 d-flex">
             <div class="d-flex align-items-center flex-grow-1">
                 <div class="logo">
@@ -73,6 +74,7 @@
             </ul>
         </div>
     </header>
+    </div>
 </template>
 <script setup>
 import FastProductsSearch from "./FastProductsSearch.vue";
