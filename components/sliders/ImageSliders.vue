@@ -23,7 +23,7 @@
                         v-if="theme == 'mobile' && slider.mobile_image != null"
                         :src="
                             useRuntimeConfig().public.serverUrl +
-                            'slider/' +
+                            '/slider/' +
                             slider.mobile_image
                         "
                         :alt="slider.title"
@@ -33,7 +33,7 @@
                         v-else
                         :src="
                             useRuntimeConfig().public.serverUrl +
-                            'slider/' +
+                            '/slider/' +
                             slider.image
                         "
                         :alt="slider.title"

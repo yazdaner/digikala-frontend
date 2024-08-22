@@ -13,7 +13,9 @@
 }
 a{
     text-decoration: none !important;
+    color: black;
 }
+
 body {
     font-family: Shabnam, serif !important;
     direction: rtl;
@@ -92,3 +94,9 @@ body {
     list-style: none;
 }
 
+.summery-text{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

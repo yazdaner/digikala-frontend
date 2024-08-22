@@ -8,6 +8,7 @@
 </template>
 <script setup>
 const theme = ref(useState("theme"));
+theme.value="desktop";
 onMounted(() => {
     theme.value = window.innerWidth >= 1200 ? "desktop" : "mobile";
     window.addEventListener("resize", () => {
