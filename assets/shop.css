@@ -69,19 +69,19 @@
     align-items: center;
 }
 
-.product-small-image {
+.product-theme1 .product-small-image {
     width: 86px;
     height: 86px;
 }
 
-.product-number-box {
+.product-theme1 .product-number-box {
     color: #59adea;
     line-height: 2.1;
     font-size: 1.9rem;
     font-weight: 800;
 }
 
-.product-title-box {
+.product-theme1 .product-title-box {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

@@ -5,7 +5,7 @@
                 <img class="product-small-image" :src="useRuntimeConfig().public.serverUrl +'/thumbnails/'+product.image" :alt="product.title">
             </div>
             <div class="product-number-box mx-2">
-                {{ index }}
+                {{ $replaceEnNumber(index) }}
             </div>
             <div class="product-title-box" v-if="product != null">
                 {{ product.title }}

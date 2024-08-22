@@ -18,6 +18,6 @@
 </template>
 <script setup>
 defineProps(['title']);
-const {data:products,pending} = useFetch(useRuntimeConfig().public.api + '/shop/products?limit=12&variation=true');
+const {data:products,pending} = useFetch(useRuntimeConfig().public.api + '/shop/products?limit=15&variation=true');
 import ProductsListView from './ProductsListView.vue';
 </script>
