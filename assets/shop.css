@@ -81,13 +81,6 @@
     font-weight: 800;
 }
 
-.product-theme1 .product-title-box {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
 .products-list .product-grid-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -95,4 +88,7 @@
 
 .products-list .product-grid-list:has(.product-theme1) {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.products-list .product-grid-list:has(.product-theme2) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
