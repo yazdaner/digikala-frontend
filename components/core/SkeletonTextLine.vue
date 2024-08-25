@@ -1,9 +1,13 @@
 
 <template>
-<div class="placeholder-glow">
+<div class="placeholder-glow skeleton-text-line">
     <span class="placeholder w-100"></span>
-    <span class="placeholder w-50"></span>
 </div>
 </template>
-<script setup>
-</script>
+<style>
+.skeleton-text-line .placeholder{
+    width: 100%;
+    height: 10px;
+    border-radius: 8px;
+}
+</style>

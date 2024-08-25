@@ -1,6 +1,12 @@
 <template>
-    <div class="placeholder-glow">
-        <span class="placeholder w-100 product-small-image"></span>
+    <div class="placeholder-glow image-skeleton">
+        <div class="placeholder w-100"></div>
     </div>
 </template>
-<script setup></script>
+<style>
+.image-skeleton .placeholder{
+    border: inherit;
+    width: inherit;
+    height: inherit;
+}
+</style>

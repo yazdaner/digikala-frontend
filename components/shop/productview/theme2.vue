@@ -4,7 +4,7 @@
             <div class="product-image-box">
                 <img
                     v-if="product != null"
-                    class="product-image m-3"
+                    class="product-image"
                     :src="
                         useRuntimeConfig().public.serverUrl +
                         '/thumbnails/' +
@@ -14,21 +14,25 @@
                 />
                 <skeleton-image class="product-image" v-else></skeleton-image>
             </div>
-            <div class="info">
-                <div class="w-100">
-                    <span class="title_two_line" v-if="product != null">
-                        {{ product.title }}
-                    </span>
-                    <skeleton-text-line v-else></skeleton-text-line>
+            <div class="info" v-if="product != null">
+                <div class="d-flex justify-content-between pt-3">
+                    <discount-percentage :product="product"></discount-percentage>
+                    <product-final-price :product="product"></product-final-price>
                 </div>
-                <div class="d-flex justify-content-between pt-3"></div>
-                <div class="d-flex pt-3"></div>
+                <div class="d-flex pt-3">
+                    <product-old-price></product-old-price>
+                </div>
             </div>
+            <skeleton-text-two-line v-else></skeleton-text-two-line>
         </nuxt-link>
     </div>
 </template>
 <script setup>
 defineProps(["loading", "product"]);
 import SkeletonImage from "~/components/core/SkeletonImage.vue";
-import SkeletonTextLine from "~/components/core/SkeletonTextLine.vue";
+import SkeletonTextTwoLine from "~/components/core/SkeletonTextTwoLine.vue";
+
+import ProductFinalPrice from "~/components/pricevariation/ProductFinalPrice.vue";
+import DiscountPercentage from "~/components/pricevariation/DiscountPercentage.vue";
+import ProductOldPrice from "~/components/pricevariation/ProductOldPrice.vue";
 </script>

@@ -92,3 +92,26 @@
 .products-list .product-grid-list:has(.product-theme2) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
+
+.products-list .product-grid-list .product-theme2{
+    border-bottom: 1px solid #e8e8e8;
+    height: auto;
+}
+
+.product-theme2{
+    background-color: white;
+    padding: 15px;
+    border-left: 1px solid #e8e8e8;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-image{
+    width: 135px;
+    height: 135px;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block;
+}
