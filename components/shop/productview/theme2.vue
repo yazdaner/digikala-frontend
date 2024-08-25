@@ -16,11 +16,11 @@
             </div>
             <div class="info" v-if="product != null">
                 <div class="d-flex justify-content-between pt-3">
-                    <discount-percentage :product="product"></discount-percentage>
-                    <product-final-price :product="product"></product-final-price>
+                    <discount-percentage :product="product" />
+                    <product-final-price :product="product" />
                 </div>
-                <div class="d-flex pt-3">
-                    <product-old-price></product-old-price>
+                <div class="d-flex pt-3 float-left">
+                    <product-old-price :product="product" />
                 </div>
             </div>
             <skeleton-text-two-line v-else></skeleton-text-two-line>

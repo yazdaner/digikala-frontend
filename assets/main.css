@@ -102,3 +102,7 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+.float-left{
+    float: left !important;
+}

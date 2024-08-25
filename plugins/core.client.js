@@ -10,4 +10,21 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
         return num;
     };
+    nuxtApp.vueApp.config.globalProperties.$numberFormat = function (num) {
+        if (num !== undefined && num !== null) {
+            num = num.toString();
+            let format = '';
+            let counter = 0;
+            for (let i = num.length - 1; i >= 0 ; i--) {
+                format += num[i];
+                counter++;
+                if(counter==3 && i!==0){
+                    format += ',';
+                    counter=0;
+                }
+            }
+            num = format.split('').reverse().join('');
+        }
+        return num;
+    };
 });
