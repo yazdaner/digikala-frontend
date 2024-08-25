@@ -93,25 +93,28 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-.products-list .product-grid-list .product-theme2{
+.products-list .product-grid-list .product-theme2 {
     border-bottom: 1px solid #e8e8e8;
-    height: auto;
 }
 
-.product-theme2{
+.product-theme2 {
     background-color: white;
     padding: 15px;
     border-left: 1px solid #e8e8e8;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
-.product-image{
+.product-image {
     width: 135px;
     height: 135px;
     object-fit: contain;
     margin: 20px auto;
     display: block;
+}
+
+.old-price {
+    color: #c0c2c5;
+    text-decoration-line: line-through;
 }

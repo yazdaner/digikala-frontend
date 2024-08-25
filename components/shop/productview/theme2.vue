@@ -15,11 +15,11 @@
                 <skeleton-image class="product-image" v-else></skeleton-image>
             </div>
             <div class="info" v-if="product != null">
-                <div class="d-flex justify-content-between pt-3">
+                <div class="d-flex pt-3">
                     <discount-percentage :product="product" />
                     <product-final-price :product="product" />
                 </div>
-                <div class="d-flex pt-3 float-left">
+                <div class="d-flex pt-3">
                     <product-old-price :product="product" />
                 </div>
             </div>

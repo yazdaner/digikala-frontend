@@ -106,3 +106,11 @@ body {
 .float-left{
     float: left !important;
 }
+
+.line-through {
+    text-decoration-line: line-through;
+}
+
+.mr-auto{
+    margin-right: auto !important;
+}
