@@ -12,22 +12,24 @@
                     "
                     :alt="product.title"
                 />
-                <skeleton-image v-else></skeleton-image>
+                <skeleton-image class="product-small-image me-3" v-else />
             </div>
-            <div class="product-number-box mx-2">
-                {{ $replaceEnNumber(index) }}
+            <div class="d-flex" v-if="product != null">
+                <div class="product-number-box mx-2">
+                    {{ $replaceEnNumber(index) }}
+                </div>
+                <div class="product-title-box">
+                    <span class="title_two_line">
+                        {{ product.title }}
+                    </span>
+                </div>
             </div>
-            <div class="product-title-box">
-                <span class="title_two_line" v-if="product != null">
-                    {{product.title}}
-                </span>
-                <skeleton-text-line v-else></skeleton-text-line>
-            </div>
+            <skeleton-text-two-line class="w-100" v-else />
         </nuxt-link>
     </div>
 </template>
 <script setup>
 defineProps(["loading", "product", "index"]);
 import SkeletonImage from "~/components/core/SkeletonImage.vue";
-import SkeletonTextLine from "~/components/core/SkeletonTextLine.vue";
+import SkeletonTextTwoLine from "~/components/core/SkeletonTextTwoLine.vue";
 </script>

@@ -118,3 +118,11 @@
     color: #c0c2c5;
     text-decoration-line: line-through;
 }
+
+.products-horizontal-slider .swiper-slide:has(.product-theme2) {
+    width: 250px;
+}
+
+.products-horizontal-slider .swiper-slide:has(.product-theme1) {
+    width: 400px;
+}

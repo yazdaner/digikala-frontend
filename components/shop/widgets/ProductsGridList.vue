@@ -26,7 +26,7 @@
 defineProps(["loading", "products"]);
 import theme1 from "../productview/theme1.vue";
 import theme2 from "../productview/theme2.vue";
-const theme = ref("theme2");
+const theme = ref("theme1");
 function getViewComponent() {
     if (theme.value == "theme1") {
         return theme1;

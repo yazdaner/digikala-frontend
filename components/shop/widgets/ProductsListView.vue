@@ -14,12 +14,12 @@
             v-if="row > 1"
             :loading="loading"
             :products="products"
+            :row="row"
         />
-        
     </div>
 </template>
 <script setup>
-defineProps(["loading", "products", "row", "column"]);
+defineProps(["loading", "products", "row", "column", "theme"]);
 import ProductsGridList from "./ProductsGridList.vue";
 import ProductsHorizontalSlider from "./ProductsHorizontalSlider.vue";
 import ProductsMultiRowSlider from "./ProductsMultiRowSlider.vue";

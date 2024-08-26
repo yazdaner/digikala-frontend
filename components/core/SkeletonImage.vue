@@ -4,7 +4,7 @@
     </div>
 </template>
 <style>
-.image-skeleton .placeholder{
+.image-skeleton .placeholder {
     border: inherit;
     width: inherit;
     height: inherit;

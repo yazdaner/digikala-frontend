@@ -11,13 +11,14 @@
         <products-list-view 
             :loading="pending"
             :products="products"
-            row="n"
-            column="n"
+            :row="row"
+            :column="column"
+            :theme="theme"
         />
     </div>
 </template>
 <script setup>
-defineProps(['title']);
+defineProps(['title','row','column','theme']);
 const {data:products,pending} = useFetch(useRuntimeConfig().public.api + '/shop/products?limit=15&variation=true');
 import ProductsListView from './ProductsListView.vue';
 </script>
