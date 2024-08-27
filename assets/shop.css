@@ -82,6 +82,13 @@
     font-weight: 800;
 }
 
+.products-list {
+    margin: 10px;
+    border: solid 1px #e0e0e2;
+    border-radius: 16px;
+    padding: 10px 0;
+}
+
 .products-list .product-grid-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -147,11 +154,4 @@
 
 .swiper-c .swiper-button-disabled {
     display: none !important;
-}
-
-.products-list {
-    margin: 10px;
-    border: solid 1px #e0e0e2;
-    border-radius: 16px;
-    padding: 10px 0;
 }

@@ -7,3 +7,13 @@
 .logo-box .logo{
     width: 120px;
 }
+
+.footer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    border-top: 1px solid #e0e0e2;
+    margin-top: 40px;
+}

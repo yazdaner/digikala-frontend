@@ -1,7 +1,7 @@
 <template>
     <div class="image-slider">
         <div class="placeholder-glow" v-if="loading">
-            <span class="placeholder w-100"></span>
+            <span class="placeholder w-100 bg-secondary"></span>
         </div>
         <swiper
             v-else

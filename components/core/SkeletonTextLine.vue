@@ -1,7 +1,7 @@
 
 <template>
 <div class="placeholder-glow skeleton-text-line">
-    <span class="placeholder w-100"></span>
+    <span class="placeholder w-100 bg-secondary"></span>
 </div>
 </template>
 <style>

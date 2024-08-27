@@ -1,5 +1,5 @@
 <template>
-    <div class="layout">
+    <div class="shop-layout">
         <desktop-layout v-if="theme == 'desktop'">
             <slot />
         </desktop-layout>
