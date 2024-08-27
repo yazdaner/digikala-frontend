@@ -19,7 +19,7 @@
     </div>
 </template>
 <script setup>
-defineProps(["loading", "products", "row", "column", "theme"]);
+defineProps(["loading", "products", "row", "column"]);
 import ProductsGridList from "./ProductsGridList.vue";
 import ProductsHorizontalSlider from "./ProductsHorizontalSlider.vue";
 import ProductsMultiRowSlider from "./ProductsMultiRowSlider.vue";

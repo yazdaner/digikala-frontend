@@ -5,5 +5,5 @@
     </div>
 </template>
 <script setup>
-import MobileHeader from '~/components/shop/mobile/MobileHeader.vue';
+import MobileHeader from '~/components/shop/Header/mobile/MobileHeader.vue';
 </script>
