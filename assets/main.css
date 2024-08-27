@@ -96,6 +96,10 @@ body {
     color: #62666d !important;
 }
 
+.color-gray-3{
+    color: #62666d;
+}
+
 .b-color-gray {
     background-color: #f0f0f1;
 }
@@ -110,6 +114,10 @@ body {
 
 .pr-5px {
     padding-right: 5px !important;
+}
+
+.line-h-2{
+    line-height: 2.3;
 }
 
 .none-list-style {
@@ -133,4 +141,23 @@ body {
 
 .mr-auto{
     margin-right: auto !important;
+}
+
+.border-top{
+    border-top: 1px solid #e0e0e2;
+    padding-top : 20px;
+}
+
+.certificate-footer{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #e0e0e2;
+    border-radius: 10px;
+    width:100px;
+    height:100px;
+}
+.certificate-footer img{
+    object-fit: contain;
+    width:75px;
+    height:75px;
 }

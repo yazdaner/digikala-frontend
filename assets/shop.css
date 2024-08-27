@@ -155,3 +155,9 @@
 .swiper-c .swiper-button-disabled {
     display: none !important;
 }
+
+.social-icon-footer{
+    font-size: 35px;
+    color: #81858b;
+    margin-left: 40px;
+}
