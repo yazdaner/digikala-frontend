@@ -1,25 +1,37 @@
 <template>
     <div>
         <div class="selected-categories">
-            <div v-if="categories.length > 0">
-                <h3 class="text-center m-5 fs-23">خرید بر اساس دسته‌ بندی</h3>
+            <div>
+                <h3 class="text-center mt-5 fs-23">خرید بر اساس دسته‌ بندی</h3>
                 <ul>
-                    <li class="category-item" v-for="(category, key) in categories" :key="key">
-                        <nuxt-link :to="getCategoryUrl(category)">
-                            <img
-                                class="category-image"
-                                :src="
-                                    useRuntimeConfig().public.serverUrl +
-                                    '/category/' +
-                                    category.image
-                                "
-                                :alt="category.name"
-                            />
-                            <p class="text-center fs-13 mt-1">
-                                {{ category.name }}
-                            </p>
-                        </nuxt-link>
-                    </li>
+                    <template v-if="categories.length > 0">
+                        <li
+                            class="category-item"
+                            v-for="(category, key) in categories"
+                            :key="key"
+                        >
+                            <nuxt-link :to="getCategoryUrl(category)">
+                                <img
+                                    class="category-image"
+                                    :src="
+                                        useRuntimeConfig().public.serverUrl +
+                                        '/category/' +
+                                        category.image
+                                    "
+                                    :alt="category.name"
+                                />
+                                <p class="text-center fs-13 mt-1">
+                                    {{ category.name }}
+                                </p>
+                            </nuxt-link>
+                        </li>
+                    </template>
+                    <template v-else>
+                        <li class="category-item" v-for="i in 14" :key="i">
+                                <core-skeleton-image class="category-image rounded-circle mb-3"/>
+                                <core-skeleton-text-line />
+                        </li>
+                    </template>
                 </ul>
             </div>
         </div>
@@ -65,8 +77,7 @@ function getCategoryUrl(category) {
     height: 100px;
 }
 
-.selected-categories .category-item{
+.selected-categories .category-item {
     margin: 30px;
 }
-
 </style>

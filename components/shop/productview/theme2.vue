@@ -12,7 +12,7 @@
                     "
                     :alt="product.title"
                 />
-                <skeleton-image class="product-image" v-else></skeleton-image>
+                <skeleton-image class="product-image rounded" v-else></skeleton-image>
             </div>
             <div class="info" v-if="product != null">
                 <div class="d-flex pt-3">

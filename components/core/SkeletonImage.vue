@@ -1,6 +1,6 @@
 <template>
     <div class="placeholder-glow image-skeleton">
-        <div class="placeholder w-100 rounded bg-secondary"></div>
+        <div class="placeholder w-100 bg-secondary"></div>
     </div>
 </template>
 <style>
@@ -8,5 +8,6 @@
     border: inherit;
     width: inherit;
     height: inherit;
+    border-radius: inherit;
 }
 </style>
