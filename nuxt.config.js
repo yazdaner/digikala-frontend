@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '~/assets/main.css',
     '~/assets/shop.css',
     '~/assets/widgets.css',
+    '~/assets/desktop/footer.css',
   ],
   runtimeConfig :{
     public : {

@@ -161,3 +161,11 @@ body {
     width:75px;
     height:75px;
 }
+
+.color-blue{
+    color: #59adea;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

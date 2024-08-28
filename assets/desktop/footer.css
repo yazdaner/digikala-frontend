@@ -1,0 +1,25 @@
+.footer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    border-top: 1px solid #e0e0e2;
+    margin-top: 40px;
+}
+
+.footer .logo-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer .logo-box .logo{
+    width: 120px;
+}
+
+.footer .social-icon-footer{
+    font-size: 35px;
+    color: #81858b;
+    margin-left: 40px;
+}
