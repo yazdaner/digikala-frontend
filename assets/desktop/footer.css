@@ -23,3 +23,18 @@
     color: #81858b;
     margin-left: 40px;
 }
+
+.footer .certificate-footer{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #e0e0e2;
+    border-radius: 10px;
+    width:100px;
+    height:100px;
+}
+
+.footer .certificate-footer img{
+    object-fit: contain;
+    width:75px;
+    height:75px;
+}

@@ -84,7 +84,7 @@ body {
     font-size: 24px !important;
 }
 
-.fw-500{
+.fw-500 {
     font-weight: 500 !important;
 }
 
@@ -96,7 +96,7 @@ body {
     color: #62666d !important;
 }
 
-.color-gray-3{
+.color-gray-3 {
     color: #62666d;
 }
 
@@ -116,7 +116,7 @@ body {
     padding-right: 5px !important;
 }
 
-.line-h-2{
+.line-h-2 {
     line-height: 2.3;
 }
 
@@ -131,7 +131,7 @@ body {
     overflow: hidden;
 }
 
-.float-left{
+.float-left {
     float: left !important;
 }
 
@@ -139,33 +139,21 @@ body {
     text-decoration-line: line-through;
 }
 
-.mr-auto{
+.mr-auto {
     margin-right: auto !important;
 }
 
-.border-top{
+.border-top {
     border-top: 1px solid #e0e0e2;
-    padding-top : 20px;
+    padding-top: 20px;
 }
 
-.certificate-footer{
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #e0e0e2;
-    border-radius: 10px;
-    width:100px;
-    height:100px;
-}
-.certificate-footer img{
-    object-fit: contain;
-    width:75px;
-    height:75px;
-}
-
-.color-blue{
+.color-blue {
     color: #59adea;
 }
 
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
 }
+
+

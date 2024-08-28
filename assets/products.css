@@ -1,41 +1,3 @@
-.header-container {
-    height: 125px;
-}
-
-.h-search-input {
-    width: 660px;
-    margin: 15px;
-    height: 44px;
-    background-color: #f0f0f1;
-}
-
-.theme-header .logo img {
-    width: 120px;
-}
-
-.theme-header {
-    z-index: 100;
-    position: fixed;
-    background: white;
-    border-bottom: 1px solid #e3e3e3;
-}
-
-.header-navigation {
-    list-style: none !important;
-    margin: 5px 0 0 !important;
-    padding-right: 0 !important;
-}
-
-.header-navigation li {
-    margin: 0 10px;
-    padding: 10px 0;
-}
-
-.header-navigation li a {
-    color: #62666d;
-    font-size: 14px;
-}
-
 .black-cover {
     position: fixed;
     left: 0;
@@ -53,6 +15,7 @@
     transition: 0.3s;
     transform: scaleX(0);
 }
+
 .hover-line div::before {
     content: "";
     position: absolute;

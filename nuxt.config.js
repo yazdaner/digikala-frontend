@@ -5,9 +5,11 @@ export default defineNuxtConfig({
   css:[
     'bootstrap/dist/css/bootstrap.rtl.css',
     '~/assets/main.css',
-    '~/assets/shop.css',
-    '~/assets/widgets.css',
+    '~/assets/products.css',
+    '~/assets/desktop/header.css',
+    '~/assets/desktop/mega-menu.css',
     '~/assets/desktop/footer.css',
+
   ],
   runtimeConfig :{
     public : {
@@ -16,5 +18,4 @@ export default defineNuxtConfig({
     }
   },
   modules: ['nuxt-swiper'],
-  ssr:false
 })

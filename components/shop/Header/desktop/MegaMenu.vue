@@ -11,7 +11,7 @@
                                 selectedCatrgory == category ? 'active' : '',
                             ]"
                         >
-                            <nuxt-link to="/">
+                            <nuxt-link :to="'/main/' + category.slug">
                                 <fa-icon :icon="category.icon" class="pl-5px" />
                                 <span>{{ category.name }}</span>
                             </nuxt-link>
@@ -20,7 +20,10 @@
                 </ul>
             </div>
             <div class="left-list" v-if="selectedCatrgory != null">
-                <nuxt-link to="/" class="all-products-category">
+                <nuxt-link
+                    :to="'/main/' + selectedCatrgory.slug"
+                    class="all-products-category"
+                >
                     <span>همه محصولات </span>
                     <span>{{ selectedCatrgory.name }}</span>
                     <fa-icon
@@ -36,7 +39,7 @@
                         :key="key"
                     >
                         <li class="main-group">
-                            <nuxt-link to="/">
+                            <nuxt-link :to="'/search/' + child1.slug">
                                 <span>{{ child1.name }}</span>
                                 <fa-icon
                                     :icon="['fas', 'angle-left']"
@@ -76,7 +79,7 @@
 const { data: categories, pending } = await useFetch(
     useRuntimeConfig().public.api + "/categories/all"
 );
-const showMegaMenu = useState('megaMenu');
+const showMegaMenu = useState("megaMenu");
 // const showMegaMenu = true;
 
 const selectedCatrgory = ref(null);
@@ -92,6 +95,3 @@ function getChildCategory(id) {
     return list;
 }
 </script>
-<style>
-@import "~/assets/mega-menu.css";
-</style>
