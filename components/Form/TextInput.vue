@@ -11,6 +11,7 @@
                 :placeholder="placeholder != undefined ? placeholder : ''"
                 @keyup="inputKeyUp"
                 @focusout="inputFocusout"
+                @focus="inputFocus"
                 @click="inputClick"
                 v-model="value"
                 />
@@ -22,7 +23,7 @@
     </div>
 </template>
 <script setup>
-import { inputKeyUp, inputFocusout, inputClick } from "~/functions/form.js";
+import { inputKeyUp, inputFocusout,inputFocus, inputClick } from "~/functions/form.js";
 defineProps({
     disable: {
         type: Boolean,
@@ -37,17 +38,19 @@ defineProps({
         type: String,
     },
 });
-const top = ref("12px");
+
+const top = ref("-12px");
 const error = ref(false);
 const value = defineModel();
 
-
 onMounted(()=>{
-    if(value.value == undefined){
+    if(value.value == '' || value.value == null){
         top.value = '12px';
     }else{
         top.value = '-12px';
     }
+    const addRules = inject('addRules');
+    addRules('','validate');
 })
 
 </script>

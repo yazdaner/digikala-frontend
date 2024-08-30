@@ -1,8 +1,9 @@
 <template>
     <div>
-        <div style="width: 300px;margin: 20px;">
-            <FormTextInput label="نام کاربری"
-            />
+        <div style="width: 300px; margin: 20px">
+            <FormComponent>
+                <FormTextInput label="نام کاربری" v-model="username" rules="required"/>
+            </FormComponent>
         </div>
     </div>
 </template>
@@ -10,4 +11,5 @@
 definePageMeta({
     layout: false,
 });
+const username = ref("yazdaner");
 </script>
