@@ -1,10 +1,7 @@
 <template>
     <div
-        :class="
-            showAll == true
-                ? 'fs-13 color-gray-2 line-h-2'
-                : 'fs-13 color-gray-2 line-h-2 continued-text'
-        "
+        class="fs-13 color-gray-2 line-h-2"
+        :class="showAll == false ? 'continued-text' : ''"
         v-html="showAll ? text : text.toString().substring(0, length)"
     ></div>
     <span

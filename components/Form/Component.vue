@@ -4,8 +4,14 @@
   </div>
 </template>
 <script setup>
-    function addRules(){
-        alert('addRules');
+    const rules = ref([]);
+    function addRule(fun){
+        rules.value.push(fun);
     }
-    provide('addRules',addRules);
+
+    function sendForm(){
+        rules.value[0]();
+    }
+    provide('addRule',addRule);
+    provide('sendForm', sendForm);
 </script>
