@@ -8,7 +8,6 @@
     function addRule(fun){
         rules.value.push(fun);
     }
-
     function sendForm(){
         let sendForm = true;
         for (let i = 0; i < rules.value.length; i++) {
@@ -17,10 +16,9 @@
                 sendForm = result;
             }
         }
-        // if(sendForm == true){
-            
-        // }
-
+        if(sendForm == true){
+            alert('success');   
+        }
     }
     provide('addRule',addRule);
     provide('sendForm', sendForm);

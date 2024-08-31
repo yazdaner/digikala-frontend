@@ -30,7 +30,7 @@ import {
     inputFocusout,
     inputFocus,
     inputClick,
-    validateInput
+    validateInput,
 } from "~/functions/form.js";
 const props = defineProps({
     id: {
@@ -61,7 +61,7 @@ const top = ref("-12px");
 const error = ref(false);
 const value = defineModel();
 
-const addRule = inject('addRule');
+const addRule = inject("addRule");
 onMounted(() => {
     if (value.value == "" || value.value == null) {
         top.value = "12px";
@@ -70,33 +70,13 @@ onMounted(() => {
     }
     addRule(validate);
 });
-function validate(){
-   const result = validateInput(props,value.value);
+function validate() {
+    const result = validateInput(props, value.value);
     if (result != true) {
         error.value = result;
     } else {
         error.value = false;
-    }  
+    }
+    return result;
 }
 </script>
-<style>
-.input-box {
-    margin: 15px 0;
-    position: relative;
-}
-.input-box label {
-    position: absolute;
-    right: 20px;
-    color: #b0b3b6;
-    background-color: white;
-    transition-duration: 0.2s;
-}
-.form-control {
-    border-radius: 5px !important;
-    height: 50px;
-}
-
-.form-control:focus {
-    box-shadow: none !important;
-}
-</style>

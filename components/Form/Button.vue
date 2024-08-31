@@ -1,5 +1,5 @@
 <template>
-    <button type="button" @click="sendForms" class="btn" :class="design">
+    <button type="button" @click="sendRequest" class="btn" :class="design">
         <slot />
     </button>
 </template>
@@ -7,7 +7,7 @@
 defineProps(['design']);
 
 const sendForm = inject('sendForm');
-function sendForms(){
+function sendRequest(){
     sendForm();
 }
 

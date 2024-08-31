@@ -1,0 +1,32 @@
+.input-box {
+    margin: 15px 0;
+    position: relative;
+}
+.input-box label {
+    position: absolute;
+    right: 20px;
+    color: #b0b3b6;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+.form-control {
+    border-radius: 5px !important;
+    height: 50px;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.error-border{
+    border: solid 1px red !important;
+}
+
+.has-error{
+    color: red !important;
+    font-size: 14px;
+}
+
+.input-box .input-div{
+    border-radius:5px !important;
+}

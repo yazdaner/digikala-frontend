@@ -11,7 +11,14 @@ export const inputFocusout = function () {
         this.error = result;
     } else {
         this.error = false;
-    }   
+    }
+};
+
+export const inputFocus = function () {
+    this.top = "-12px";
+};
+export const inputClick = function () {
+    this.top = "-12px";
 };
 
 // return error
@@ -23,13 +30,6 @@ export const validateInput = function (props, value) {
     return result;
 };
 
-export const inputFocus = function () {
-    this.top = "-12px";
-};
-export const inputClick = function () {
-    this.top = "-12px";
-};
-
 function validate(value, rules, label) {
     if (typeof rules == "string") {
         rules = rules.toString().split("|");
@@ -37,15 +37,21 @@ function validate(value, rules, label) {
     let result = true;
     for (let i = 0; i < rules.length; i++) {
         if (result == true) {
-            const ruleArrName = rules[i].toString().split(":");
-            if (ruleArrName.length == 2) {
+            if (typeof rules[i] == "function") {
+                result = rules[i](value, label);
             } else {
-                result = eval("check" + ruleArrName)(value, label);
+                const ruleArrName = rules[i].toString().split(":");
+                if (ruleArrName.length == 2) {
+                    // todo
+                } else {
+                    result = eval("check" + ruleArrName[0])(value, label);
+                }
             }
         }
     }
     return result;
 }
+
 function checkrequired(value, label) {
     if (value == undefined || value.toString().trim() == "") {
         return `${label} نمی تواند خالی باشد`;
