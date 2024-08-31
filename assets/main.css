@@ -156,4 +156,15 @@ body {
     cursor: pointer;
 }
 
+.error-border{
+    border: solid 1px red !important;
+}
 
+.has-error{
+    color: red !important;
+    font-size: 14px;
+}
+
+.input-box .input-div{
+    border-radius:5px !important;
+}

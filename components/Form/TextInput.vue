@@ -73,9 +73,9 @@ onMounted(() => {
 function validate(){
    const result = validateInput(props,value.value);
     if (result != true) {
-        this.error = result;
+        error.value = result;
     } else {
-        this.error = false;
+        error.value = false;
     }  
 }
 </script>

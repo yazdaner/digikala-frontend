@@ -6,6 +6,11 @@
                 <FormTextInput label="رمز" rules="required" name="password" id="password"/>
                 <FormButton design="btn-success">ورود</FormButton>
             </FormComponent>
+            <FormComponent>
+                <FormTextInput label="نام کاربری" v-model="username" rules="required" name="username" id="username"/>
+                <FormTextInput label="رمز" rules="required" name="password" id="password"/>
+                <FormButton design="btn-success">ورود</FormButton>
+            </FormComponent>
         </div>
     </div>
 </template>

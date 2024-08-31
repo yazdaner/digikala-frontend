@@ -1,14 +1,14 @@
 <template>
-    <button type="button" @click="sendForm" class="btn" :class="design">
+    <button type="button" @click="sendForms" class="btn" :class="design">
         <slot />
     </button>
 </template>
 <script setup>
 defineProps(['design']);
 
-// const sendForm = inject('sendForm');
-// function sendForm(){
-//     sendForm();
-// }
+const sendForm = inject('sendForm');
+function sendForms(){
+    sendForm();
+}
 
 </script>
