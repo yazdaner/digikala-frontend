@@ -36,7 +36,7 @@ function validate(value, rules, label) {
     }
     let result = true;
     for (let i = 0; i < rules.length; i++) {
-        if (result == true) {
+        if (result == true && rules[i] !== undefined) {
             if (typeof rules[i] == "function") {
                 result = rules[i](value, label);
             } else {

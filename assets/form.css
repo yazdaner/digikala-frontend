@@ -29,4 +29,13 @@
 
 .input-box .input-div{
     border-radius:5px !important;
+    display: flex;
+    align-items: center; 
+    border: 1px solid #d3d3d3;
+    padding: 0 10px;
+}
+
+
+.input-box .input-div .form-control{
+    border: none !important;
 }

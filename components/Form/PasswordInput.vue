@@ -6,9 +6,9 @@
         <div class="input-div" :class="[error ? 'error-border' : '']">
             <slot name="perfix"></slot>
             <input
-                type="text"
                 class="form-control"
                 v-model="value"
+                :type="type"
                 :id="id"
                 :disabled="disable"
                 :placeholder="placeholder != undefined ? placeholder : ''"
@@ -16,6 +16,10 @@
                 @focusout="inputFocusout"
                 @focus="inputFocus"
                 @click="inputClick"
+            />
+            <fa-icon
+                :icon="['far', passwordIcon]"
+                @click="changePasswordInputType"
             />
             <slot name="suffix"></slot>
         </div>
@@ -61,6 +65,8 @@ const props = defineProps({
 const top = ref("-12px");
 const error = ref(false);
 const value = defineModel();
+const type = ref('password');
+const passwordIcon = ref('eye');
 
 const addRule = inject("addRule");
 onMounted(() => {
@@ -79,5 +85,15 @@ function validate() {
         error.value = false;
     }
     return result;
+}
+
+function changePasswordInputType(){
+    if(type.value == 'password'){
+        type.value = 'text'
+        passwordIcon.value = 'eye-slash'
+    }else{
+        type.value = 'password'
+        passwordIcon.value = 'eye'
+    }
 }
 </script>
