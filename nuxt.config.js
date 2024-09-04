@@ -19,4 +19,8 @@ export default defineNuxtConfig({
     }
   },
   modules: ['nuxt-swiper'],
+  devServer : {
+    port : 3000,
+    host : '127.0.0.1',
+  }
 })

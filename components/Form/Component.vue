@@ -15,6 +15,9 @@ const props = defineProps({
     action: {
         type: String,
     },
+    sendFunction: {
+        type: Function,
+    },
 });
 
 // add rule for inputs
@@ -43,29 +46,36 @@ function sendForm() {
 const { $axios } = useNuxtApp();
 const form = ref("form");
 function submitForm() {
+    // get data
     const data = [];
     const inputs = form.value.querySelectorAll(".c-input");
-    const method = props.method;
-    const url = useRuntimeConfig().public.api + "/" + props.action;
     inputs.forEach((input) => {
         data[input.getAttribute("name")] = input.getAttribute("value");
     });
-    if (method != "get" && data != []) {
-        $axios[method](url, data)
-            .then((response) => {
-                props.result(response);
-            })
-            .catch((e) => {
-                props.result(e);
-            });
+
+    const method = props.method;
+    const url = useRuntimeConfig().public.api + "/" + props.action;
+
+    if (props.sendFunction !== undefined) {
+        props.sendFunction(data);
     } else {
-        $axios[method](url)
-            .then((response) => {
-                props.result(response);
-            })
-            .catch((e) => {
-                props.result(e);
-            });
+        if (method != "get" && data != []) {
+            $axios[method](url, data)
+                .then((response) => {
+                    props.result(response);
+                })
+                .catch((e) => {
+                    props.result(e);
+                });
+        } else {
+            $axios[method](url)
+                .then((response) => {
+                    props.result(response);
+                })
+                .catch((e) => {
+                    props.result(e);
+                });
+        }
     }
 }
 
@@ -73,5 +83,4 @@ function submitForm() {
 
 provide("addRule", addRule);
 provide("sendForm", sendForm);
-
 </script>
