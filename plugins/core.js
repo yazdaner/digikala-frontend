@@ -27,4 +27,15 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
         return num;
     };
+    nuxtApp.vueApp.config.globalProperties.$addArrayList = function (name,list) {
+        if(nuxtApp.vueApp.config.globalProperties['$'+name] == undefined){
+            nuxtApp.vueApp.config.globalProperties['$'+name] = list;
+        }
+        else{
+            nuxtApp.vueApp.config.globalProperties['$'+name]=[
+                ...nuxtApp.vueApp.config.globalProperties['$'+name],
+                ...list
+            ]
+        }
+    };
 });

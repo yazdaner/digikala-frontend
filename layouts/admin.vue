@@ -11,5 +11,7 @@
         </div>
     </client-only>
 </template>
-<script setup>
-</script>
+<script setup></script>
+<style>
+@import "/assets/admin.css";
+</style>

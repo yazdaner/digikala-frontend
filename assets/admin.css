@@ -1,0 +1,18 @@
+.panel-layout .sidebar
+{
+    background-color: #233242;
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    width: inherit;
+    scrollbar-color: #233242 #233242 !important;
+    scrollbar-width: thin;
+}
+
+.panel-layout .sidebar::-webkit-scrollbar-track{
+    background-color: #233242;
+}
+
+.panel-layout .sidebar a{
+    color: white !important;
+}
