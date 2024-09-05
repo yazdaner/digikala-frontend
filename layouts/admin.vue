@@ -1,7 +1,14 @@
 <template>
     <client-only>
-        <h1>پنل مدیریت</h1>
-        <slot></slot>
+        <div class="panel-layout admin">
+            <div class="d-flex">
+                <admin-sidebar />
+                <div class="content w-100">
+                    <admin-header />
+                    <slot class="p-5" />
+                </div>
+            </div>
+        </div>
     </client-only>
 </template>
 <script setup>
