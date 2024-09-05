@@ -32,9 +32,20 @@ definePageMeta({
 });
 const { $axios } = useNuxtApp();
 async function login(data) {
-    data["type"] = "admin";
-    // const url = useRuntimeConfig().public.serverUrl + "/login";
-    const url = useRuntimeConfig().public.serverUrl + "/sanctum/csrf-cookie";
-    const response = await $axios.get(url, data);
+    const objData = {
+        username : data.username,
+        password : data.password,
+        type : 'admin',
+    }
+    await $axios.get(
+        useRuntimeConfig().public.serverUrl + "/sanctum/csrf-cookie"
+    );
+    const url = useRuntimeConfig().public.api + "/login";
+    try {
+        const response = await $axios.post(url,objData);
+        navigateTo('/admin')
+    } catch (e) {}
+
+    
 }
 </script>
