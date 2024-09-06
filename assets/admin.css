@@ -16,3 +16,76 @@
 .panel-layout .sidebar a{
     color: white !important;
 }
+
+.panel-layout .sidebar ul{
+    list-style: none;
+    padding-right: 0 !important;
+}
+
+.panel-layout .sidebar ul li{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1rem;
+    cursor: pointer;
+}
+
+.panel-layout .sidebar ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.main-menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.panel-layout .sidebar ul li .label{
+    padding-right: 10px;
+}
+
+.panel-layout .sidebar ul{
+    padding-left: 0 !important;
+}
+
+.panel-layout .sidebar ul li ul li{
+    padding: 10px 30px 10px 0 !important;
+}
+
+.panel-layout .sidebar .active{
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white;
+}
+
+.panel-layout.admin .sidebar .title{
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+}
+
+.panel-layout.admin .theme-header{
+    background-color: #fafbfc;
+    color: #000;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    box-shadow: 0 0 11px #00000021;
+    -webkit-box-shadow: 0 0 11px #00000021;
+}
+.panel-layout.admin .theme-header .fa-bars{
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.panel-layout.admin .sidebar.toggled .main-menu .label,
+.panel-layout.admin .sidebar.toggled .fa-angle-down,
+.panel-layout.admin .sidebar.toggled .title{
+    display: none;
+}
+
+.panel-layout.admin .sidebar.toggled .main-menu{
+    justify-content: center;
+}

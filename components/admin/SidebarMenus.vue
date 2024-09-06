@@ -12,6 +12,7 @@
             <template v-else>
                 <div class="main-menu"
                     @click="showChildMenu(key)"
+                    :class="activeMenu == key ? 'active' :''"
                 >
                     <div>
                         <fa-icon :icon="menu.icon" />
@@ -19,7 +20,7 @@
                     </div>
                     <fa-icon :icon="['fas', 'fa-angle-down']" />
                 </div>
-                <transition name="child-menu">
+                <transition name="child-slide">
                     <ul class="child-menu-ul" v-if="activeMenu == key">
                         <template v-for="child in getChildMenus(menu.key)">
                             <li>
@@ -79,6 +80,15 @@ function showChildMenu(key){
     animation: slide 0.3s;
 }
 .child-slide-leave-active{
-    animation: slide 0.3s reverse;
+    animation: slide 0.25s reverse;
+}
+
+@keyframes slide {
+    0%{
+        transform : translateY(-15%);
+    }
+    100%{
+        transform : translateY(0%);
+    }
 }
 </style>
