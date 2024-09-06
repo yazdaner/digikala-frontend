@@ -2,8 +2,8 @@
     <div class="admin-login-page">
         <div class="wrap-login container">
             <h5 class="text-center my-5">ورود به پنل مدیریت فروشگاه</h5>
-            <FormComponent class="mt-5" :send-function="login">
-                <div class="row">
+            <div class="row d-flex justify-content-center">
+            <FormComponent class="w-50" :send-function="login">
                     <div class="col-12">
                         <FormTextInput
                             label="نام کاربری"
@@ -21,8 +21,8 @@
                     <div class="row">
                         <FormButton design="btn-primary">ورود</FormButton>
                     </div>
-                </div>
-            </FormComponent>
+                </FormComponent>
+            </div>
         </div>
     </div>
 </template>
