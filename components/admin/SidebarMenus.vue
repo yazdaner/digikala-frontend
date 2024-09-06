@@ -1,5 +1,5 @@
 <template>
-    <ul>
+    <ul class="mt-4">
         <li v-for="(menu, key) in menuList" :key="key">
             <nuxt-link :to="menu.path" v-if="!checkHasChildMenu(menu.key)">
                 <div class="main-menu">

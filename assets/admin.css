@@ -1,11 +1,12 @@
 .panel-layout .sidebar
 {
     background-color: #233242;
-    height: 100vh;
+    height: 100% !important;
     overflow: auto;
     scrollbar-color: #233242 #233242 !important;
     scrollbar-width: thin;
     width: 260px;
+    position: fixed;
 }
 
 .panel-layout .sidebar.toggled
@@ -102,4 +103,13 @@
     z-index: 10000;
     width: 200px;
     border-radius: 10px 0 0 10px;
+}
+
+.panel-layout.admin .sidebar.toggled .content{
+    margin-right: 260px;
+}
+
+.admin-module-container{
+    margin-top: 60px;
+    padding: 40px;
 }
