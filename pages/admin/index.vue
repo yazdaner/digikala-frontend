@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mt-60">
        <p>داشبود</p>
     </div>
 </template>

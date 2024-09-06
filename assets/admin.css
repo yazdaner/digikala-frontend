@@ -1,12 +1,16 @@
 .panel-layout .sidebar
 {
     background-color: #233242;
-    position: fixed;
+    height: 100vh;
     overflow: auto;
-    height: 100%;
-    width: inherit;
     scrollbar-color: #233242 #233242 !important;
     scrollbar-width: thin;
+    width: 260px;
+}
+
+.panel-layout .sidebar.toggled
+{
+    width: 70px;
 }
 
 .panel-layout .sidebar::-webkit-scrollbar-track{
@@ -39,6 +43,7 @@
     display: flex;
     justify-content: space-between;
     padding: 15px;
+    position: relative;
 }
 
 .panel-layout .sidebar ul li .label{
@@ -88,4 +93,13 @@
 
 .panel-layout.admin .sidebar.toggled .main-menu{
     justify-content: center;
+}
+
+.panel-layout.admin .sidebar.toggled .child-menu-ul{
+    background: #394755;
+    position: fixed;
+    right: 70px;
+    z-index: 10000;
+    width: 200px;
+    border-radius: 10px 0 0 10px;
 }
