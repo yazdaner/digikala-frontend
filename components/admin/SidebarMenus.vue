@@ -77,6 +77,7 @@ function showChildMenu(key){
 </script>
 <style>
 .child-slide-enter-active{
+
     animation: slide 0.3s;
 }
 .child-slide-leave-active{

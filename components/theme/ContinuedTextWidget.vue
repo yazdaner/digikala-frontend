@@ -1,6 +1,6 @@
 <template>
     <div
-        class="fs-13 color-gray-2 line-h-2"
+        class="fs-13 color-grey-2 line-h-2"
         :class="showAll == false ? 'continued-text' : ''"
         v-html="showAll ? text : text.toString().substring(0, length)"
     ></div>

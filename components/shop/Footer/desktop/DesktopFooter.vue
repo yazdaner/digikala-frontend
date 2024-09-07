@@ -54,32 +54,32 @@
                 <h5 class="mb-3">با دیجی‌کالا</h5>
                 <ul class="none-list-style p-0">
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             اتاق خبر دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             فروش در دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             فرصت‌های شغلی
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             گزارش تخلف در دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             تماس با دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             درباره دیجی‌کالا
                         </nuxt-link>
                     </li>
@@ -89,32 +89,32 @@
                 <h5 class="mb-3">با دیجی‌کالا</h5>
                 <ul class="none-list-style p-0">
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             اتاق خبر دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             فروش در دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             فرصت‌های شغلی
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             گزارش تخلف در دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             تماس با دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             درباره دیجی‌کالا
                         </nuxt-link>
                     </li>
@@ -124,32 +124,32 @@
                 <h5 class="mb-3">با دیجی‌کالا</h5>
                 <ul class="none-list-style p-0">
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             اتاق خبر دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             فروش در دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             فرصت‌های شغلی
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             گزارش تخلف در دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             تماس با دیجی‌کالا
                         </nuxt-link>
                     </li>
                     <li class="mb-3 fs-15">
-                        <nuxt-link class="color-gray" to="/">
+                        <nuxt-link class="color-grey" to="/">
                             درباره دیجی‌کالا
                         </nuxt-link>
                     </li>
@@ -185,7 +185,7 @@
         </div>
         <div class="row mt-5 border-top">
             <div class="col-md-8">
-                <h5 class="color-gray-3">
+                <h5 class="color-grey-3">
                     فروشگاه اینترنتی دیجی‌کالا، بررسی، انتخاب و خرید آنلاین
                 </h5>
                 <div class="mt-3">
@@ -213,7 +213,7 @@
             </div>
         </div>
         <div class="text-center mt-5 border-top">
-            <p class="fs-12 color-gray-3">
+            <p class="fs-12 color-grey-3">
                 برای استفاده از مطالب دیجی‌کالا، داشتن «هدف غیرتجاری» و ذکر
                 «منبع» کافیست. تمام حقوق اين وب‌سايت نیز برای شرکت نوآوران فن
                 آوازه (فروشگاه آنلاین دیجی‌کالا) است.

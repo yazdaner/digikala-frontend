@@ -6,6 +6,9 @@
             title="دسته بندی"
             route="admin/categories"
         >
+            <!-- <template v-slot:row="{ item }">
+                <span>{{ item.icon }}</span>
+            </template> -->
         </TableComponent>
     </div>
 </template>

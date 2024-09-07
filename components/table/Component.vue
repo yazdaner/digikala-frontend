@@ -15,7 +15,11 @@
                 </tr>
             </thead>
             <tbody>
-                <template v-if="data.data.length > 0" v-for="(item, key) in data.data" :key="key">
+                <template
+                    v-if="data.data.length > 0"
+                    v-for="(item, key) in data.data"
+                    :key="key"
+                >
                     <tr>
                         <td>
                             {{ $replaceEnNumber(key + 1) }}
@@ -43,26 +47,14 @@
                         </td>
                         <td class="text-center" v-if="disableAction == false">
                             <div class="table-action-box">
-                                <nuxt-link
-                                    :to="getUpdateUrl(item)"
-                                    v-if="
-                                        disableEditIcon == false &&
-                                        trashed == false
-                                    "
-                                >
-                                    <fa-icon :icon="['fas', 'pen-to-square']" />
-                                </nuxt-link>
-                                <table-delete-link
+                                <table-default-actions
+                                    :item="item"
                                     :title="title"
                                     :trashed="trashed"
-                                    v-if="disableDeleteIcon == false"
-                                    :url="getDeleteUrl(item)"
-                                />
-                                <table-restore-link
-                                    v-if="trashed"
-                                    :title="title"
-                                    :trashed="trashed"
-                                    :url="getRestoreUrl(item)"
+                                    :disableDeleteIcon="disableDeleteIcon"
+                                    :disableEditIcon="disableEditIcon"
+                                    :editUrl="editUrl"
+                                    :route="route"
                                 />
                             </div>
                         </td>
@@ -80,6 +72,49 @@
                 </tr>
             </tbody>
         </table>
+        <div v-else>
+            <div
+                class="mobile-table"
+                v-for="(item, key) in data.data"
+                :key="key"
+            >
+                <div v-for="column in columns" class="item">
+                    <div class="color-grey">
+                        {{ column.title }}
+                    </div>
+                    <div>
+                        <template v-if="$slots[column['value']] !== undefined">
+                            <slot :name="column['value']" :item="item" />
+                        </template>
+
+                        <template v-if="typeof column['value'] == 'string'">
+                            {{ item[column["value"]] }}
+                        </template>
+
+                        <template v-if="typeof column['value'] == 'function'">
+                            {{ column["value"](item) }}
+                        </template>
+                    </div>
+                </div>
+
+                <div v-if="sparateLine">
+                    <slot name="row" :item="item"></slot>
+                </div>
+
+                <div class="table-action-box" v-if="disableAction == false">
+                    <table-default-actions
+                        :item="item"
+                        :title="title"
+                        :trashed="trashed"
+                        :disableDeleteIcon="disableDeleteIcon"
+                        :disableEditIcon="disableEditIcon"
+                        :editUrl="editUrl"
+                        :route="route"
+                    />
+                </div>
+            </div>
+        </div>
+        <table-footer :data="data" />
     </div>
 </template>
 <script setup>
@@ -117,33 +152,11 @@ const props = defineProps({
     },
 });
 
-function getUpdateUrl(item) {
-    if (props.editUrl === undefined) {
-        return "/" + props.route + "/" + item.id + "/edit";
-    } else {
-        return props.editUrl.toString().replace(":id", item.id);
-    }
-}
-function getDeleteUrl(item) {
-    return useRuntimeConfig().public.api + "/" + props.route + "/" + item.id;
-}
-function getRestoreUrl(item) {
-    return (
-        useRuntimeConfig().public.api +
-        "/" +
-        props.route +
-        "/" +
-        item.id +
-        "/restore"
-    );
-}
-
-const tableColspan = computed(()=>{
-    let n = props.columns.length + 1
-    if(props.disableAction == false){
+const tableColspan = computed(() => {
+    let n = props.columns.length + 1;
+    if (props.disableAction == false) {
         n++;
     }
     return n;
 });
-
 </script>

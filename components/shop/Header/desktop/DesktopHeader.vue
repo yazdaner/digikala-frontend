@@ -25,7 +25,7 @@
                     <li @mouseenter="showMegaMenu" @mouseleave="hideMegaMenu">
                         <a class="text-bold text-dark fs-16">
                             <fa-icon
-                                class="pl-5px color-gray-2"
+                                class="pl-5px color-grey-2"
                                 :icon="['fas', 'bars']"
                             />
                             <span>دسته بندی کالاها</span>
@@ -36,7 +36,7 @@
                     <li class="severense-line">
                         <nuxt-link to="/">
                             <fa-icon
-                                class="pl-5px color-gray-2"
+                                class="pl-5px color-grey-2"
                                 :icon="['fas', 'percent']"
                             />
                             <span>شگفت‌ انگیزها</span>
@@ -46,7 +46,7 @@
                     <li>
                         <nuxt-link to="/">
                             <fa-icon
-                                class="pl-5px color-gray-2"
+                                class="pl-5px color-grey-2"
                                 :icon="['fas', 'store-alt']"
                             />
                             <span>سوپر مارکت</span>
@@ -56,7 +56,7 @@
                     <li>
                         <nuxt-link to="/">
                             <fa-icon
-                                class="pl-5px color-gray-2"
+                                class="pl-5px color-grey-2"
                                 :icon="['fas', 'fire-flame-curved']"
                             />
                             <span>پرفروش‌ ترین‌ها</span>
@@ -66,7 +66,7 @@
                     <li>
                         <nuxt-link to="/">
                             <fa-icon
-                                class="pl-5px color-gray-2"
+                                class="pl-5px color-grey-2"
                                 :icon="['fas', 'gift']"
                             />
                             <span>تخفیف‌ ها و پیشنهاد ها</span>

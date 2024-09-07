@@ -3,7 +3,7 @@
         <div class="panel-layout admin">
             <div class="d-flex">
                 <admin-sidebar />
-                <div class="content w-100" :style="{margin : toggled == true ? '0 70px 0 0' : '0 260px 0 0'}">
+                <div class="content w-100" :class="toggled ? 'toggled' :''">
                     <admin-header />
                     <slot />
                 </div>
