@@ -5,6 +5,7 @@
             :data="categories"
             title="دسته بندی"
             route="admin/categories"
+            :fetch-data="fetchData"
         >
             <!-- <template v-slot:row="{ item }">
                 <span>{{ item.icon }}</span>
@@ -20,12 +21,7 @@ definePageMeta({
 const categories = ref({ data: [] });
 const { $axios } = useNuxtApp();
 onMounted(() => {
-    $axios
-        .get(useRuntimeConfig().public.api + "/admin/categories")
-        .then((response) => {
-            categories.value = response.data.categories;
-            console.log(response.data.categories.data);
-        });
+    fetchData();
 });
 const columns = [
     {
@@ -33,4 +29,12 @@ const columns = [
         value: "name",
     },
 ];
+
+function fetchData(page = 1){
+    $axios
+        .get(useRuntimeConfig().public.api + "/admin/categories?page="+page)
+        .then((response) => {
+            categories.value = response.data.categories;
+        });
+}
 </script>

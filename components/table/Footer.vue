@@ -12,9 +12,10 @@
         </div>
         <TablePagination 
             :data="data"
+            :fetchData="fetchData"
         />
     </div>
 </template>
 <script setup>
-defineProps(["data"]);
+defineProps(["data","fetchData"]);
 </script>

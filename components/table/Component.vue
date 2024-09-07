@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <table-footer :data="data" />
+        <table-footer :data="data" :fetchData="fetchData" />
     </div>
 </template>
 <script setup>
@@ -149,6 +149,9 @@ const props = defineProps({
     },
     sparateLine: {
         type: Boolean,
+    },
+    fetchData: {
+        type: Function,
     },
 });
 
