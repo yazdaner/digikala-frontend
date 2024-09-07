@@ -118,8 +118,8 @@
 .panel-layout .table {
     border: 1px solid #f2ecec;
     border-radius: 5px;
-    /* border-collapse: separate;
-    border-spacing: 0; */
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 .panel-layout .table  thead tr th{

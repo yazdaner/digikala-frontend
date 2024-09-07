@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <template v-for="(item, key) in data.data" :key="key">
+                <template v-if="data.data.length > 0" v-for="(item, key) in data.data" :key="key">
                     <tr>
                         <td>
                             {{ $replaceEnNumber(key + 1) }}
@@ -67,7 +67,17 @@
                             </div>
                         </td>
                     </tr>
+                    <tr v-if="sparateLine">
+                        <td :colspan="tableColspan">
+                            <slot name="row" :item="item"></slot>
+                        </td>
+                    </tr>
                 </template>
+                <tr v-else>
+                    <td :colspan="tableColspan" class="text-center">
+                        رکوردی برای نمایش یافت نشد
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -102,6 +112,9 @@ const props = defineProps({
     title: {
         type: String,
     },
+    sparateLine: {
+        type: Boolean,
+    },
 });
 
 function getUpdateUrl(item) {
@@ -115,6 +128,22 @@ function getDeleteUrl(item) {
     return useRuntimeConfig().public.api + "/" + props.route + "/" + item.id;
 }
 function getRestoreUrl(item) {
-    return useRuntimeConfig().public.api + "/" + props.route + "/" + item.id + "/restore";
+    return (
+        useRuntimeConfig().public.api +
+        "/" +
+        props.route +
+        "/" +
+        item.id +
+        "/restore"
+    );
 }
+
+const tableColspan = computed(()=>{
+    let n = props.columns.length + 1
+    if(props.disableAction == false){
+        n++;
+    }
+    return n;
+});
+
 </script>
