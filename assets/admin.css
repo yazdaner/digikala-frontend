@@ -101,6 +101,7 @@
     position: fixed;
     right: 70px;
     z-index: 10000;
+    margin-top: -47px;
     width: 200px;
     border-radius: 10px 0 0 10px;
 }
@@ -113,3 +114,22 @@
     margin-top: 60px;
     padding: 40px;
 }
+
+.panel-layout .table {
+    border: 1px solid #f2ecec;
+    border-radius: 5px;
+    /* border-collapse: separate;
+    border-spacing: 0; */
+}
+
+.panel-layout .table  thead tr th{
+    background-color: #f5f7fa;
+    height: 50px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    color: #606265;
+    bottom: 0 !important;
+}
+
+

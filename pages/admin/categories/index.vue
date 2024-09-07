@@ -1,6 +1,10 @@
 <template>
     <div class="admin-module-container">
-        <TableComponent :columns="columns" :data="categories" />
+        <TableComponent :columns="columns" :data="categories" title="دسته بندی">
+            <template v-slot:position="{item}">
+                <span>{{item.icon}}</span>
+            </template>
+        </TableComponent>
     </div>
 </template>
 <script setup>
@@ -24,10 +28,6 @@ const columns = [
     {
         title: "نام دسته",
         value: "name",
-    },
-    {
-        title: "پوزیشن",
-        value: "position",
     }
 ];
 </script>
