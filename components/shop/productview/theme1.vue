@@ -32,5 +32,4 @@
 defineProps(["loading", "product", "index"]);
 import SkeletonImage from "~/components/core/SkeletonImage.vue";
 import SkeletonTextTwoLine from "~/components/core/SkeletonTextTwoLine.vue";
-const { $productPath } = useNuxtApp();
 </script>
