@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nuxt-link to="/" class="product-theme2">
+        <nuxt-link :to="$productPath(product)" class="product-theme2">
             <div class="product-image-box">
                 <img
                     v-if="product != null"

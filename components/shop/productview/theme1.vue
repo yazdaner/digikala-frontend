@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nuxt-link to="/" class="product-theme1">
+        <nuxt-link :to="$productPath(product)" class="product-theme1">
             <div class="product-image-box">
                 <img
                     v-if="product != null"
@@ -32,4 +32,5 @@
 defineProps(["loading", "product", "index"]);
 import SkeletonImage from "~/components/core/SkeletonImage.vue";
 import SkeletonTextTwoLine from "~/components/core/SkeletonTextTwoLine.vue";
+const { $productPath } = useNuxtApp();
 </script>
