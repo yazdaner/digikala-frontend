@@ -28,11 +28,13 @@
                             </h1>
                         </div>
                         <div class="row mt-4">
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="detail-box"></div>
                             </div>
-                            <div class="col-4">
-                                <div class="variation-box"></div>
+                            <div class="col-5">
+                                <div class="variation-box">
+                                    <PriceVariationDetail :product />
+                                </div>
                             </div>
                         </div>
                     </div>

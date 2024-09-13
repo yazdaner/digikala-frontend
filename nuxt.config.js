@@ -10,6 +10,7 @@ export default defineNuxtConfig({
         "~/assets/desktop/mega-menu.css",
         "~/assets/desktop/footer.css",
         "~/assets/form.css",
+        "~/assets/shop.css",
     ],
     runtimeConfig: {
         public: {

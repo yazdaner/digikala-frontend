@@ -12,7 +12,7 @@
                     "
                     :alt="product.title"
                 />
-                <skeleton-image class="product-small-image rounded me-3" v-else />
+                <CoreSkeletonImage class="product-small-image rounded me-3" v-else />
             </div>
             <div class="d-flex" v-if="product != null">
                 <div class="product-number-box mx-2">
@@ -24,12 +24,10 @@
                     </span>
                 </div>
             </div>
-            <skeleton-text-two-line class="w-100" v-else />
+            <CoreSkeletonTextTwoLine class="w-100" v-else />
         </nuxt-link>
     </div>
 </template>
 <script setup>
 defineProps(["loading", "product", "index"]);
-import SkeletonImage from "~/components/core/SkeletonImage.vue";
-import SkeletonTextTwoLine from "~/components/core/SkeletonTextTwoLine.vue";
 </script>
