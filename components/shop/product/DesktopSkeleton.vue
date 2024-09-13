@@ -9,14 +9,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-5 mt-5">
-            <CoreSkeletonTextLine />
+        <div class="col-8 mt-5">
             <CoreSkeletonTextTwoLine />
-
+            <div class="row">
+                <div class="col-8 mt-4">
+                    <CoreSkeletonTextTwoLine />
+                    <CoreSkeletonTextTwoLine />
+                </div>
+                <div class="col-4">
+                    <CoreSkeletonImage class="variation-box"/>
+                </div>
+            </div>
         </div>
-        <div class="col-3">
-            <CoreSkeletonImage class="variation-box mt-5"/>
-        </div>
+       
     </div>
     </div>
 </template>

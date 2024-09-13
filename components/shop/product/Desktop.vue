@@ -1,15 +1,14 @@
 <template>
     <div class="product-page">
         <ShopProductDesktopSkeleton v-if="pending" />
-        <div v-if="product != null">
-            <!-- {{ product }} -->
-            {{ images }}
+        <div v-else>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-4">
                         <ShopProductOptions :product />
                         <div class="product-gallery w-100">
                             <img
+                                class="img-fluid"
                                 v-if="images.length > 0"
                                 :src="
                                     useRuntimeConfig().public.serverUrl +
@@ -22,8 +21,21 @@
                         </div>
                         <PriceReportWrong :product />
                     </div>
-                    <div class="col-5"></div>
-                    <div class="col-3"></div>
+                    <div class="col-8 mt-5">
+                        <div class="w-100">
+                            <h1 class="lh-30 fs-19 text-bold">
+                                {{ product.title }}
+                            </h1>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-8">
+                                <div class="detail-box"></div>
+                            </div>
+                            <div class="col-4">
+                                <div class="variation-box"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

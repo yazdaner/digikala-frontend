@@ -120,6 +120,10 @@ body {
     line-height: 2.3;
 }
 
+.lh-30{
+    line-height: 30px;
+}
+
 .none-list-style {
     list-style: none;
 }
