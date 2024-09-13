@@ -17,7 +17,7 @@
                     <CoreSkeletonTextTwoLine />
                 </div>
                 <div class="col-4">
-                    <CoreSkeletonImage class="variation-box"/>
+                    <CoreSkeletonImage class="variation-box-skeleton"/>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
     border-radius: 5px;
 }
 
-.variation-box{
+.variation-box-skeleton{
     height: 400px;
     border-radius: 5px;
 }
