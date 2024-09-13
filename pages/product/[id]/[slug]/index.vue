@@ -1,6 +1,6 @@
 <template>
-    <ShopProductDesktop :product v-if="theme == 'desktop'" />
-    <ShopProductMobile :product v-else />
+    <ShopProductDesktop :product :pending v-if="theme == 'desktop'" />
+    <ShopProductMobile :product :pending v-else />
 </template>
 <script setup>
 const theme = useState("theme");

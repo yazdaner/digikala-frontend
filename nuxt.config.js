@@ -23,4 +23,5 @@ export default defineNuxtConfig({
         host: "127.0.0.1",
     },
     buildModules: ["~/plugins/core.js"],
+    ssr : false
 });

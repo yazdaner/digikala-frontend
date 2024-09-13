@@ -1,6 +1,8 @@
 export default defineNuxtPlugin((nuxtApp) => {
     const productPath = function (product) {
-        return "product/yzd-" + product.id + "/" + product.slug;
+        if(product != null){
+            return "product/yzd-" + product.id + "/" + product.slug;
+        }
     };
 
     return {

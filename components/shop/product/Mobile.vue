@@ -2,7 +2,5 @@
 {{ product }}
 </template>
 <script setup>
-
-defineProps(['product'])
-
+defineProps(['product','pending']);
 </script>
