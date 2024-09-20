@@ -1,17 +1,15 @@
 <template>
-    <div class="admin-module-container">
-        <TableComponent
-            :columns="columns"
-            :data="categories"
-            title="دسته بندی"
-            route="admin/categories"
-            :fetch-data="fetchData"
-        >
-            <!-- <template v-slot:row="{ item }">
+    <TableComponent
+        :columns="columns"
+        :data="categories"
+        title="دسته بندی"
+        route="admin/categories"
+        :fetch-data="fetchData"
+    >
+        <!-- <template v-slot:row="{ item }">
                 <span>{{ item.icon }}</span>
             </template> -->
-        </TableComponent>
-    </div>
+    </TableComponent>
 </template>
 <script setup>
 definePageMeta({
@@ -30,9 +28,9 @@ const columns = [
     },
 ];
 
-function fetchData(page = 1){
+function fetchData(page = 1) {
     $axios
-        .get(useRuntimeConfig().public.api + "/admin/categories?page="+page)
+        .get(useRuntimeConfig().public.api + "/admin/categories?page=" + page)
         .then((response) => {
             categories.value = response.data.categories;
         });

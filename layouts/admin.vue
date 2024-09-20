@@ -5,7 +5,9 @@
                 <admin-sidebar />
                 <div class="content w-100" :class="toggled ? 'toggled' :''">
                     <admin-header />
-                    <slot />
+                    <div class="admin-module-container">
+                        <slot />
+                    </div>
                 </div>
             </div>
         </div>
