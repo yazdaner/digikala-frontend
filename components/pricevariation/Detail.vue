@@ -15,7 +15,10 @@
             </span>
         </div>
         <div class="px-4" v-if="selectedVariation.param2_type">
-            <component :is="$variationParamComponent(selectedVariation.param2_type)" />
+            <component
+                :is="$variationParamComponent(selectedVariation.param2_type)" 
+                :data="selectedVariation.param2"
+                />
         </div>
     </div>
 </template>
