@@ -24,6 +24,10 @@
                         <li
                             @click="selectItem(item)"
                             :class="{ active: model == item[itemValue] }"
+                            v-if="
+                                item[itemText].toString().indexOf(searchText) >=
+                                0
+                            "
                         >
                             <div v-if="item['icon'] !== undefined">
                                 <img :src="item['icon']" class="box-16" />

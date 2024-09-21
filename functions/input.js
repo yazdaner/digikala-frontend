@@ -23,7 +23,6 @@ export function input(props, model) {
 
     const click = function () {
         top.value = "-12px";
-        console.log(model.value);
     };
 
     const validateInput = function (props, value) {
