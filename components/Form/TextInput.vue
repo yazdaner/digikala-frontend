@@ -8,37 +8,30 @@
             <input
                 type="text"
                 class="form-control"
-                v-model="value"
+                v-model="model"
                 :id="id"
                 :disabled="disable"
                 :placeholder="placeholder != undefined ? placeholder : ''"
-                @keyup="inputKeyUp"
-                @focusout="inputFocusout"
-                @focus="inputFocus"
-                @click="inputClick"
+                @focusout="focusout"
+                @focus="focus"
+                @click="click"
             />
             <slot name="suffix"></slot>
         </div>
         <div v-if="error" class="has-error">
             {{ error }}
         </div>
-        <input type="hidden" :name="name" :value="value" class="c-input" />
+        <input type="hidden" :name="name" :value="model" class="c-input" />
     </div>
 </template>
 <script setup>
-import {
-    inputKeyUp,
-    inputFocusout,
-    inputFocus,
-    inputClick,
-    validateInput,
-} from "~/functions/form.js";
+import { input } from "~/functions/input.js";
 const props = defineProps({
     id: {
-        type: [String],
+        type: String,
     },
     name: {
-        type: [String],
+        type: String,
         required: true,
     },
     disable: {
@@ -56,28 +49,36 @@ const props = defineProps({
     rules: {
         type: [String, Array],
     },
+    initialValue: {
+        type: [String, Number],
+    },
 });
 
-const top = ref("-12px");
-const error = ref(false);
-const value = defineModel();
+const model = defineModel();
+
+const { top, error, focusout, focus, click, validateInput } = input(
+    props,
+    model
+);
 
 const addRule = inject("addRule");
 onMounted(() => {
-    if (value.value == "" || value.value == null) {
+    if (props.initialValue !== undefined || props.initialValue !== null) {
+        model.value = props.initialValue;
+    }
+
+    if (model.value == "" || model.value == null) {
         top.value = "12px";
     } else {
         top.value = "-12px";
     }
-    addRule(validate);
-});
-function validate() {
-    const result = validateInput(props, value.value);
-    if (result != true) {
-        error.value = result;
-    } else {
-        error.value = false;
+
+    if (addRule !== undefined) {
+        addRule(validate);
     }
-    return result;
+});
+
+function validate() {
+    return validateInput(props, model.value);
 }
 </script>

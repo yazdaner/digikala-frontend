@@ -1,5 +1,4 @@
 export default defineNuxtPlugin((nuxtApp) => {
-
     nuxtApp.vueApp.config.globalProperties.$addArrayList('admin_panel_child_menus',[
         {
             label : 'برند ها',
@@ -9,5 +8,4 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
         
     ]);
-
 });
