@@ -39,3 +39,67 @@
 .input-box .input-div .form-control{
     border: none !important;
 }
+
+.select-tag {
+    position: relative;
+}
+
+.select-tag .input-div{
+    background-color: white;
+    border-radius: 5px !important;
+    border: 1px solid #d3d3d3;
+    padding: 0 10px;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-tag .item-list
+{
+    background-color: white;
+    position: absolute;
+    z-index: 100000;
+    cursor: pointer;
+    padding: 0 10px;
+    border-bottom: 1px #d3d3d3 solid;
+    border-right: 1px #d3d3d3 solid;
+    border-left: 1px #d3d3d3 solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.select-tag .item-list ul li {
+    padding: 5px 0;
+}
+
+
+.select-tag .item-list ul li.active {
+    background-color: red;
+}
+
+.select-tag .item-list ul
+{
+    max-height: 15rem;
+    overflow: auto;
+}
+
+.select-tag .item-list ul::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.select-tag .item-list ul::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+.select-tag .item-list ul::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.select-tag .item-list ul::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}

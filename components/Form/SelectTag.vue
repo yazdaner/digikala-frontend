@@ -1,6 +1,6 @@
 <template>
-    <div class="select-tag relative" :class="{ disable: disable }">
-        <div @click="showBox" class="tag" :class="{ 'error-border': error }">
+    <div class="select-tag" :class="{ disable: disable }">
+        <div @click="showBox" class="input-div" :class="{ 'error-border': error }">
             <div>
                 <label :style="{ top: top }" v-if="text == null">
                     {{ label }}
@@ -10,37 +10,41 @@
                     {{ $replaceEnNumber(text) }}
                 </span>
             </div>
-            <div v-if="showList && disable == false" class="item-list w-100">
-                <div class="my-3" v-if="items.length > 10">
-                    <FormTextInput
-                        placeholder="جستجو"
-                        hide-label
-                        v-model="searchText"
-                        class="search-input"
-                    />
-                </div>
-                <ul class="none-list-style">
-                    <template v-for="(item, key) in items" :key="key">
-                        <li
-                            @click="selectItem(item)"
-                            :class="{ active: model == item[itemValue] }"
-                            v-if="
-                                item[itemText].toString().indexOf(searchText) >=
-                                0
-                            "
-                        >
-                            <div v-if="item['icon'] !== undefined">
-                                <img :src="item['icon']" class="box-16" />
-                            </div>
-                            <span>
-                                {{ $replaceEnNumber(item[itemText]) }}
-                            </span>
-                        </li>
-                    </template>
-                </ul>
-            </div>
             <fa-icon ref="selectIcon" :icon="['fas', 'angle-down']" />
         </div>
+
+        <div v-if="showList && disable == false" class="item-list w-100">
+            <div class="my-3" v-if="items.length > 10">
+                <FormTextInput
+                    placeholder="جستجو"
+                    hide-label
+                    v-model="searchText"
+                    class="search-input"
+                />
+            </div>
+            <ul class="none-list-style">
+                <template v-for="(item, key) in items" :key="key">
+                    <li
+                        @click="selectItem(item)"
+                        :class="{ active: model == item[itemValue] }"
+                        v-if="
+                            item[itemText]
+                                .toString()
+                                .indexOf(searchText ?? '') >=
+                            0
+                        "
+                    >
+                        <div v-if="item['icon'] !== undefined">
+                            <img :src="item['icon']" class="box-16" />
+                        </div>
+                        <span>
+                            {{ $replaceEnNumber(item[itemText]) }}
+                        </span>
+                    </li>
+                </template>
+            </ul>
+        </div>
+        
         <div v-if="error" class="has-error">
             {{ error }}
         </div>
