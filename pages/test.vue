@@ -23,6 +23,12 @@
                     name="fff"
                     id="fff"
                 />
+                <FormFileInput
+                    label="imageFile"
+                    :rules="['required']"
+                    name="imageFile"
+                    id="imageFile"
+                />
                 <FormSelectTag
                     :items
                     item-text="name"

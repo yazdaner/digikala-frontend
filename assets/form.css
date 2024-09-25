@@ -44,7 +44,7 @@
     position: relative;
 }
 
-.select-tag .input-div{
+.input-div{
     background-color: white;
     border-radius: 5px !important;
     border: 1px solid #d3d3d3;
@@ -72,7 +72,6 @@
 .select-tag .item-list ul li {
     padding: 5px;
 }
-
 
 .select-tag .item-list ul li.active {
     background-color: #dfdfdf;

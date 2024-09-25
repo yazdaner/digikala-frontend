@@ -55,7 +55,6 @@
     </div>
 </template>
 <script setup>
-import { input } from "~/functions/input.js";
 const props = defineProps({
     items: {
         type: Array,
@@ -86,6 +85,7 @@ const props = defineProps({
     },
 });
 const model = defineModel();
+import { input } from "~/functions/input.js";
 const { top, error, validateInput, click } = input(props, model);
 const showList = ref(false);
 const icon = ref(null);
@@ -161,5 +161,4 @@ function findItemWithValue(value) {
     });
     return result;
 }
-
 </script>
