@@ -69,9 +69,9 @@ const passwordIcon = ref("eye");
 const addRule = inject("addRule");
 onMounted(() => {
     if (model.value == "" || model.value == null) {
-        top.value = "12px";
+        top.value = "13px";
     } else {
-        top.value = "-12px";
+        top.value = "-13px";
     }
     addRule(validate);
 });

@@ -1,12 +1,12 @@
 export function input(props, model) {
-    const top = ref("-12px");
+    const top = ref("-13px");
     const error = ref(false);
 
     const focusout = function () {
         if (model.value == "" || model.value == null) {
-            top.value = "12px";
+            top.value = "13px";
         } else {
-            top.value = "-12px";
+            top.value = "-13px";
         }
         // show error
         const result = validateInput(props, model.value);
@@ -18,11 +18,11 @@ export function input(props, model) {
     };
 
     const focus = function () {
-        top.value = "-12px";
+        top.value = "-13px";
     };
 
     const click = function () {
-        top.value = "-12px";
+        top.value = "-13px";
     };
 
     const validateInput = function (props, value) {

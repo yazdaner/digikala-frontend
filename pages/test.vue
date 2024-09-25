@@ -28,6 +28,7 @@
                     item-text="name"
                     item-value="id"
                     label="استان"
+                    initial-value="1"
                      
                 />
                 <FormPasswordInput

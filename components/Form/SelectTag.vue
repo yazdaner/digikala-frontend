@@ -1,13 +1,17 @@
 <template>
-    <div class="select-tag" :class="{ disable: disable }">
-        <div @click="showBox" class="input-div" :class="{ 'error-border': error }">
+    <div class="select-tag input-box" :class="{ disable: disable }">
+        <div
+            @click="toggleBox"
+            class="input-div"
+            :class="{ 'error-border': error }"
+        >
             <div>
-                <label :style="{ top: top }" v-if="text == null">
+                <label :for="id" v-if="hideLabel != true" :style="{ top: top }">
                     {{ label }}
                 </label>
                 <img :src="icon" v-if="icon != null" class="box-16" />
                 <span>
-                    {{ $replaceEnNumber(text) }}
+                    {{ text }}
                 </span>
             </div>
             <fa-icon ref="selectIcon" :icon="['fas', 'angle-down']" />
@@ -30,21 +34,20 @@
                         v-if="
                             item[itemText]
                                 .toString()
-                                .indexOf(searchText ?? '') >=
-                            0
+                                .indexOf(searchText ?? '') >= 0
                         "
                     >
                         <div v-if="item['icon'] !== undefined">
                             <img :src="item['icon']" class="box-16" />
                         </div>
                         <span>
-                            {{ $replaceEnNumber(item[itemText]) }}
+                            {{ item[itemText] }}
                         </span>
                     </li>
                 </template>
             </ul>
         </div>
-        
+
         <div v-if="error" class="has-error">
             {{ error }}
         </div>
@@ -89,10 +92,74 @@ const icon = ref(null);
 const text = ref(null);
 const selectIcon = ref(null);
 const searchText = ref(null);
-function showBox() {
+function toggleBox() {
+    if (model.value == "" || model.value == null) {
+        top.value = "13px";
+    } else {
+        top.value = "-13px";
+    }
     showList.value = !showList.value;
+    if (showList.value == true) {
+        selectIcon.value.$el.style.transform = "rotate(180deg)";
+    } else {
+        selectIcon.value.$el.style.transform = "rotate(0)";
+    }
 }
+
 function validate() {
     return validateInput(props, model.value);
 }
+
+const addRule = inject("addRule");
+onMounted(() => {
+    if (props.initialValue !== undefined || props.initialValue !== null) {
+        const item = findItemWithValue(props.initialValue);
+        if (item) {
+            model.value = item[props.itemValue];
+            text.value = item[props.itemText];
+            if (item["icon"]) {
+                icon.value = item["icon"];
+            }
+        }
+    }
+    if (model.value == "" || model.value == null) {
+        top.value = "13px";
+    } else {
+        top.value = "-13px";
+    }
+    if (addRule !== undefined) {
+        addRule(validate);
+    }
+});
+
+function selectItem(item) {
+    if (
+        model.value == item[props.itemValue] &&
+        text.value == item[props.itemText]
+    ) {
+        model.value = null;
+        text.value = null;
+        if (item["icon"]) {
+            icon.value = null;
+        }
+    } else {
+        model.value = item[props.itemValue];
+        text.value = item[props.itemText];
+        if (item["icon"]) {
+            icon.value = item["icon"];
+        }
+        toggleBox();
+    }
+}
+
+function findItemWithValue(value) {
+    let result = false;
+    props.items.forEach((item) => {
+        if (item[props.itemValue] == value) {
+            result = item;
+        }
+    });
+    return result;
+}
+
 </script>

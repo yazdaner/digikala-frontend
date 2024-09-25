@@ -70,18 +70,20 @@
 }
 
 .select-tag .item-list ul li {
-    padding: 5px 0;
+    padding: 5px;
 }
 
 
 .select-tag .item-list ul li.active {
-    background-color: red;
+    background-color: #dfdfdf;
+    border-radius: 5px;
 }
 
 .select-tag .item-list ul
 {
     max-height: 15rem;
     overflow: auto;
+    padding: 0 10px;
 }
 
 .select-tag .item-list ul::-webkit-scrollbar {
@@ -102,4 +104,8 @@
 /* Handle on hover */
 .select-tag .item-list ul::-webkit-scrollbar-thumb:hover {
     background: #777;
+}
+
+.select-tag .fa-angle-down{
+    transition: transform 0.3s ;
 }
