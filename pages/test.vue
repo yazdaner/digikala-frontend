@@ -35,7 +35,11 @@
                     item-value="id"
                     label="استان"
                     initial-value="1"
-                     
+                />
+                <FormCheckBox
+                    label="test"
+                    id="test"
+                    name="test"
                 />
                 <FormPasswordInput
                     label="رمز"

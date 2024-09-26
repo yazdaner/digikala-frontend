@@ -65,7 +65,7 @@ function setFile() {
 
         let size = file.value.files[0].size;
         let fSExt = ["Bytes", "KB", "MB", "GB"],
-        i = 0;
+            i = 0;
         while (size > 900) {
             size /= 1024;
             i++;

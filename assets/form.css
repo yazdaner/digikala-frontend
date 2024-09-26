@@ -108,3 +108,37 @@
 .select-tag .fa-angle-down{
     transition: transform 0.3s ;
 }
+
+.checkbox-div 
+{
+    display: flex;
+}
+.checkbox-div input[type=checkbox]{
+    position: relative;
+    border: 2px solid #25bdd1 ;
+    background-color: none;
+    height: 20px;
+    width: 20px;
+    -webkit-appearance: none;
+    border-radius: 5px;
+    opacity: 0.7;
+    margin-left: 5px;
+}
+
+.checkbox-div input[type=checkbox]:checked{
+    background-color: #25bdd1;
+    opacity: 1;
+}
+
+.checkbox-div input[type=checkbox]:checked::before{
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-50%,-50%);
+    z-index: 2;
+}
