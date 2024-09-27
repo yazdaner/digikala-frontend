@@ -1,6 +1,8 @@
 <template>
     <AdminPanelBox title="افزودن برند جدید">
-        <FormComponent>
+        <FormComponent action="admin/brands"
+            :result="result" method="post"
+        >
             <BrandForm />
             <div class="w-100 my-4">
                 <FormButton design="btn-success"> ثبت </FormButton>
@@ -13,4 +15,10 @@ definePageMeta({
     layout: "admin",
     middleware: ["auth"],
 });
+
+function result(response)
+{
+    console.log(response);
+}
+
 </script>

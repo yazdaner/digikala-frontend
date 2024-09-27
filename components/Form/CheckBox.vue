@@ -28,6 +28,5 @@ onMounted(() => {
     }else{
         model.value = false;
     }
-
 });
 </script>

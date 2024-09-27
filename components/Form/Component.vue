@@ -52,7 +52,7 @@ function submitForm() {
     inputs.forEach((input) => {
         data[input.getAttribute("name")] = input.getAttribute("value");
     });
-
+    console.log(data);
     const method = props.method;
     const url = useRuntimeConfig().public.api + "/" + props.action;
 
