@@ -70,7 +70,6 @@ function setFile() {
             size /= 1024;
             i++;
         }
-
         sizeFile.value = Math.round(size * 100) / 100 + " " + fSExt[i];
     }
 }

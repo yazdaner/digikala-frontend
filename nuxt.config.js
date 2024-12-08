@@ -18,7 +18,7 @@ export default defineNuxtConfig({
             api: "http://127.0.0.1:8000/api",
         },
     },
-    modules: ["nuxt-swiper"],
+    modules: ["nuxt-swiper", "@pinia/nuxt"],
     devServer: {
         port: 3000,
         host: "127.0.0.1",

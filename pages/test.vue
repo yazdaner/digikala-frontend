@@ -49,6 +49,7 @@
                 />
                 <FormButton design="btn-success">ورود</FormButton>
             </FormComponent>
+            <CoreLoading type="small"/>
         </div>
     </div>
 </template>

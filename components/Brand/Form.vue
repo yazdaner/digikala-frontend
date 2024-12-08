@@ -5,7 +5,7 @@
                 <FormTextInput
                     label="نام برند"
                     :rules="['required']"
-                    name="name"
+                    name="name1"
                     id="name"
                     :initial-value="
                         model !== null && model !== undefined

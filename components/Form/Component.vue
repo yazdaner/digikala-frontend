@@ -4,6 +4,9 @@
     </div>
 </template>
 <script setup>
+import { formStore } from "~/stores/form";
+// const formEvent = formStore();
+
 const props = defineProps({
     method: {
         type: String,
@@ -60,20 +63,26 @@ function submitForm() {
         props.sendFunction(data);
     } else {
         if (method != "get" && data != []) {
+            // formEvent.updateFormStatus(props.action, true);
             $axios[method](url, data)
                 .then((response) => {
                     props.result(response);
+                    // formEvent.updateFormStatus(props.action, false);
                 })
                 .catch((e) => {
                     props.result(e);
+                    // formEvent.updateFormStatus(props.action, false);
                 });
         } else {
+            // formEvent.updateFormStatus(props.action, true);
             $axios[method](url)
                 .then((response) => {
                     props.result(response);
+                    // formEvent.updateFormStatus(props.action, false);
                 })
                 .catch((e) => {
                     props.result(e);
+                    // formEvent.updateFormStatus(props.action, false);
                 });
         }
     }
