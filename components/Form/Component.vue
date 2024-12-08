@@ -47,7 +47,7 @@ const { $axios } = useNuxtApp();
 const form = ref("form");
 function submitForm() {
     // get data
-    const data = [];
+    const data = {};
     const inputs = form.value.querySelectorAll(".c-input");
     inputs.forEach((input) => {
         data[input.getAttribute("name")] = input.getAttribute("value");
