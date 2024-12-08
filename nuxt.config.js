@@ -18,11 +18,11 @@ export default defineNuxtConfig({
             api: "http://127.0.0.1:8000/api",
         },
     },
-    modules: ["nuxt-swiper", "@pinia/nuxt"],
+    modules: ["@pinia/nuxt","nuxt-swiper"],
     devServer: {
         port: 3000,
         host: "127.0.0.1",
     },
-    buildModules: ["~/plugins/core.js"],
-    ssr : false
+    buildModules: ["~/plugins/01core.js"],
+    ssr: false,
 });

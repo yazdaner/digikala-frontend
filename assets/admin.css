@@ -175,3 +175,14 @@
     background-color: #ececec;
     padding: 10px 20px;
 }
+
+.admin-panel-box .loading-box
+{
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}

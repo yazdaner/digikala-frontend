@@ -1,5 +1,5 @@
 <template>
-    <AdminPanelBox title="افزودن برند جدید">
+    <AdminPanelBox title="افزودن برند جدید" requestRroute="admin/brands">
         <FormComponent action="admin/brands"
             :result="result" method="post"
         >

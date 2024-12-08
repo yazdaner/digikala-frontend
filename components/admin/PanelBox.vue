@@ -29,12 +29,15 @@
             </div>
         </div>
         <div class="card-body">
+            <div class="loading-box" v-if="loading">
+                <CoreLoading />
+            </div>
             <slot />
         </div>
     </div>
 </template>
 <script setup>
-defineProps({
+const props = defineProps({
     title: {
         type: String,
     },
@@ -47,6 +50,9 @@ defineProps({
     route: {
         type: String,
     },
+    requestRroute: {
+        type: String,
+    },
     label: {
         type: String,
     },
@@ -54,4 +60,15 @@ defineProps({
         type: Function,
     },
 });
+const loading = ref(false);
+const formEvent = formStore();
+watch(
+    () => formEvent.key,
+    () => {
+        loading.value =
+            formEvent.sendStatus[props.requestRroute] !== undefined
+                ? formEvent.sendStatus[props.requestRroute]
+                : loading.value;
+    }
+);
 </script>
