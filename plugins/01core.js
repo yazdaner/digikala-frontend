@@ -27,15 +27,41 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
         return num;
     };
-    nuxtApp.vueApp.config.globalProperties.$addArrayList = function (name,list) {
-        if(nuxtApp.vueApp.config.globalProperties['$'+name] == undefined){
-            nuxtApp.vueApp.config.globalProperties['$'+name] = list;
+    nuxtApp.vueApp.config.globalProperties.$addArrayList = function (
+        name,
+        list
+    ) {
+        if (nuxtApp.vueApp.config.globalProperties["$" + name] == undefined) {
+            nuxtApp.vueApp.config.globalProperties["$" + name] = list;
+        } else {
+            nuxtApp.vueApp.config.globalProperties["$" + name] = [
+                ...nuxtApp.vueApp.config.globalProperties["$" + name],
+                ...list,
+            ];
         }
-        else{
-            nuxtApp.vueApp.config.globalProperties['$'+name]=[
-                ...nuxtApp.vueApp.config.globalProperties['$'+name],
-                ...list
-            ]
+    };
+
+    // nuxtApp.vueApp.config.globalProperties.$arraySort = function (array,key,order='asc') {
+    //     return _.orderBy(array,key,order);
+    // };
+
+    nuxtApp.vueApp.config.globalProperties.$serverErrors = function (error) {
+        let errors = [];
+        if (error.response != undefined && error.response.status != 401) {
+            let validateErrors = null;
+            if (error.response.data !== undefined) {
+                validateErrors = error.response.data.errors;
+            }
+            if (validateErrors !== null) {
+                let values = Object.values(validateErrors);
+                for (let i = 0; i < values.length; i++) {
+                    errors.push(values[i][0]);
+                }
+            }
+            if (errors.length == 0) {
+                errors.push("خطا در ارتباط با سرور مجددا تلاش نمایید");
+            }
         }
+        return errors;
     };
 });

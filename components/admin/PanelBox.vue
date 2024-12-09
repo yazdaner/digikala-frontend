@@ -32,6 +32,7 @@
             <div class="loading-box" v-if="loading">
                 <CoreLoading />
             </div>
+            <CoreErrors :errors/>
             <slot />
         </div>
     </div>
@@ -61,6 +62,7 @@ const props = defineProps({
     },
 });
 const loading = ref(false);
+const errors = ref([]);
 const formEvent = formStore();
 watch(
     () => formEvent.key,
@@ -69,6 +71,10 @@ watch(
             formEvent.sendStatus[props.requestRroute] !== undefined
                 ? formEvent.sendStatus[props.requestRroute]
                 : loading.value;
+        errors.value =
+            formEvent.serverErrors[props.requestRroute] !== undefined
+                ? formEvent.serverErrors[props.requestRroute]
+                : errors.value;
     }
 );
 </script>

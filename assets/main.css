@@ -169,3 +169,6 @@ body {
     height: 1rem;
 }
 
+.none-style-list{
+    list-style: none;
+}

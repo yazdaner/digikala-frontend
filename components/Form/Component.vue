@@ -64,6 +64,7 @@ function submitForm() {
     } else {
         if (method != "get" && data != []) {
             formEvent.updateFormStatus(props.action, true);
+            formEvent.updateServerErrors(props.action, []);
             $axios[method](url, data)
                 .then((response) => {
                     props.result(response);
@@ -72,9 +73,16 @@ function submitForm() {
                 .catch((e) => {
                     props.result(e);
                     formEvent.updateFormStatus(props.action, false);
+                    formEvent.updateServerErrors(
+                        props.action,
+                        useNuxtApp().vueApp.config.globalProperties.$serverErrors(
+                            e
+                        )
+                    );
                 });
         } else {
             formEvent.updateFormStatus(props.action, true);
+            formEvent.updateServerErrors(props.action, []);
             $axios[method](url)
                 .then((response) => {
                     props.result(response);
@@ -83,6 +91,12 @@ function submitForm() {
                 .catch((e) => {
                     props.result(e);
                     formEvent.updateFormStatus(props.action, false);
+                    formEvent.updateServerErrors(
+                        props.action,
+                        useNuxtApp().vueApp.config.globalProperties.$serverErrors(
+                            e
+                        )
+                    );
                 });
         }
     }
