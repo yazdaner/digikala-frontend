@@ -3,6 +3,7 @@
         <nuxt-layout>
             <div v-if="pending"></div>
             <nuxt-page v-else />
+            <CoreToast />
         </nuxt-layout>
     </div>
 </template>

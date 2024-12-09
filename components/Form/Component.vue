@@ -4,9 +4,6 @@
     </div>
 </template>
 <script setup>
-import { formStore } from "~/stores/form";
-const formEvent = formStore();
-
 const props = defineProps({
     method: {
         type: String,
@@ -45,9 +42,14 @@ function sendForm() {
 }
 
 // send data for api
+import { formStore } from "~/stores/form";
+const formEvent = formStore();
+
+const toast = useState("toast");
 
 const { $axios } = useNuxtApp();
 const form = ref("form");
+
 function submitForm() {
     // get data
     const data = {};
@@ -69,6 +71,10 @@ function submitForm() {
                 .then((response) => {
                     props.result(response);
                     formEvent.updateFormStatus(props.action, false);
+                    toast.value = {
+                        message: "ارسال اطلاعات با موفقیت انجام شد",
+                        type: "success",
+                    };
                 })
                 .catch((e) => {
                     props.result(e);
@@ -87,6 +93,10 @@ function submitForm() {
                 .then((response) => {
                     props.result(response);
                     formEvent.updateFormStatus(props.action, false);
+                    toast.value = {
+                        message: "ارسال اطلاعات با موفقیت انجام شد",
+                        type: "success",
+                    };
                 })
                 .catch((e) => {
                     props.result(e);
