@@ -13,29 +13,29 @@ const toast = useState("toast", () => null);
 watch(
     () => toast.value,
     () => {
-        if(toast.value !== null){
-            setTimeout(()=>{
+        if (toast.value !== null) {
+            setTimeout(() => {
                 toast.value = null;
-            },4000)
+            }, 4000);
         }
     }
 );
 </script>
 <style>
-.toast-box{
+.toast-box {
     position: fixed;
-    bottom :1.25rem;
+    bottom: 1.25rem;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.toast-box .message{
+.toast-box .message {
     background-color: black;
     color: white;
-    padding : 10px;
+    padding: 10px;
     border-radius: 5px;
 }
-.toast-box .message.success{
+.toast-box .message.success {
     background-color: #00ce00;
-} 
+}
 </style>
