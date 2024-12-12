@@ -116,4 +116,6 @@ function submitForm() {
 
 provide("addRule", addRule);
 provide("sendForm", sendForm);
+
+defineExpose({ sendForm, submitForm });
 </script>

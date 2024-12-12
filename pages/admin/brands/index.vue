@@ -1,7 +1,8 @@
 <template>
     <AdminBreadcrumb :items/>
-    <AdminPanelBox title="مدیریت برند ها" route="admin/brands" label="برند" trash-count="10">
-    </AdminPanelBox>
+   <TableBox
+    title="مدیریت برند ها" route="admin/brands" label="برند" :columns
+   />
 </template>
 <script setup>
 definePageMeta({
@@ -14,4 +15,12 @@ const items =[
         title : 'مدیریت برند ها',
     }
 ]
+
+const columns = [
+    {
+        title: "نام دسته",
+        value: "name",
+    },
+];
+
 </script>

@@ -32,7 +32,7 @@
             <div class="loading-box" v-if="loading">
                 <CoreLoading />
             </div>
-            <CoreErrors :errors/>
+            <CoreErrors :errors />
             <slot />
         </div>
     </div>
