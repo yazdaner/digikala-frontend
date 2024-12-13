@@ -1,8 +1,12 @@
 <template>
-    <AdminBreadcrumb :items/>
-   <TableBox
-    title="مدیریت برند ها" route="admin/brands" label="برند" :columns
-   />
+    <AdminBreadcrumb :items />
+    <TableBox
+        title="مدیریت برند ها"
+        route="admin/brands"
+        label="برند"
+        :columns
+        property="brands"
+    />
 </template>
 <script setup>
 definePageMeta({
@@ -10,17 +14,24 @@ definePageMeta({
     middleware: ["auth"],
 });
 
-const items =[
+const items = [
     {
-        title : 'مدیریت برند ها',
-    }
-]
-
-const columns = [
-    {
-        title: "نام دسته",
-        value: "name",
+        title: "مدیریت برند ها",
     },
 ];
 
+const columns = [
+    {
+        title: "آیکون",
+        value: "icon",
+    },
+    {
+        title: "نام برند",
+        value: "name",
+    },
+    {
+        title: "اسلاگ",
+        value: "en_name",
+    },
+];
 </script>

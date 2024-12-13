@@ -1,21 +1,25 @@
 <template>
     <component :is="defaultComponent" :title :route :label :trashCount>
+        <FormComponent method="get" :result :action="route" ref="searchForm">
+            <input type="hidden" class="c-input" name="page" :value="page" />
+            <input
+                type="hidden"
+                class="c-input"
+                name="trashed"
+                :value="trashed"
+            />
+            <slot name="form" />
+        </FormComponent>
+        <TableComponent
+            :route
+            :trashed
+            :columns
+            :data="tableData"
+            :title="label"
+            :fetchData="getServerData"
+        >
+        </TableComponent>
     </component>
-
-    <FormComponent method="get" :result :action="route" ref="searchForm">
-        <input type="hidden" class="c-input" name="page" :value="page" />
-        <input type="hidden" class="c-input" name="trashed" :value="trashed" />
-        <slot name="form" />
-    </FormComponent>
-    <TableComponent
-        :route
-        :trashed
-        :columns
-        :data="tableData"
-        :title="label"
-        :fetchData="getServerData"
-    >
-    </TableComponent>
 </template>
 <script setup>
 import defaultComponent from "~/components/admin/PanelBox.vue";
@@ -51,7 +55,14 @@ onMounted(() => {
     });
 });
 
-function result() {}
+function result(response) {
+    if (props.property !== undefined) {
+        tableData.value = response.data[props.property];
+        trashed.value = response.data.trashCount;
+    }else{
+        tableData.value = response.data;
+    }
+}
 
 const tableData = ref({ data: [] });
 const { $axios } = useNuxtApp();
