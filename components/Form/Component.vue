@@ -62,23 +62,21 @@ function submitForm() {
     });
     // console.log(data);
 
-    if (method == "get") {
-        sendGetRequest(url, data);
-    } else if (props.sendFunction !== undefined) {
+    if (props.sendFunction !== undefined) {
         props.sendFunction(data);
+    } else if (method == "get") {
+        sendGetRequest(url, data);
     } else if (method == "post") {
         sendPostRequest(url, data);
     }
 }
 
 function sendGetRequest(url, data) {
-    const keys = Object.keys(data);
-
     formEvent.updateFormStatus(props.action, true);
     formEvent.updateServerErrors(props.action, []);
     $axios
         .get(url, {
-            params: data
+            params: data,
         })
         .then((response) => {
             props.result(response);
