@@ -53,67 +53,75 @@ const form = ref("form");
 function submitForm() {
     // get data
     const data = {};
+    const method = props.method;
     const inputs = form.value.querySelectorAll(".c-input");
+    const url = useRuntimeConfig().public.api + "/" + props.action;
+
     inputs.forEach((input) => {
         data[input.getAttribute("name")] = input.getAttribute("value");
     });
-    console.log(data);
-    const method = props.method;
-    const url = useRuntimeConfig().public.api + "/" + props.action;
+    // console.log(data);
 
-    if (props.sendFunction !== undefined) {
+    if (method == "get") {
+        sendGetRequest(url, data);
+    } else if (props.sendFunction !== undefined) {
         props.sendFunction(data);
-    } else {
-        if (method != "get" && data != []) {
-            formEvent.updateFormStatus(props.action, true);
-            formEvent.updateServerErrors(props.action, []);
-            $axios[method](url, data)
-                .then((response) => {
-                    props.result(response);
-                    formEvent.updateFormStatus(props.action, false);
-                    toast.value = {
-                        message: "ارسال اطلاعات با موفقیت انجام شد",
-                        type: "success",
-                    };
-                })
-                .catch((e) => {
-                    props.result(e);
-                    formEvent.updateFormStatus(props.action, false);
-                    formEvent.updateServerErrors(
-                        props.action,
-                        useNuxtApp().vueApp.config.globalProperties.$serverErrors(
-                            e
-                        )
-                    );
-                });
-        } else {
-            formEvent.updateFormStatus(props.action, true);
-            formEvent.updateServerErrors(props.action, []);
-            $axios[method](url)
-                .then((response) => {
-                    props.result(response);
-                    formEvent.updateFormStatus(props.action, false);
-                    toast.value = {
-                        message: "ارسال اطلاعات با موفقیت انجام شد",
-                        type: "success",
-                    };
-                })
-                .catch((e) => {
-                    props.result(e);
-                    formEvent.updateFormStatus(props.action, false);
-                    formEvent.updateServerErrors(
-                        props.action,
-                        useNuxtApp().vueApp.config.globalProperties.$serverErrors(
-                            e
-                        )
-                    );
-                });
-        }
+    } else if (method == "post") {
+        sendPostRequest(url, data);
     }
 }
 
-// set providers
+function sendGetRequest(url, data) {
+    const keys = Object.keys(data);
 
+    formEvent.updateFormStatus(props.action, true);
+    formEvent.updateServerErrors(props.action, []);
+    $axios
+        .get(url, {
+            params: data
+        })
+        .then((response) => {
+            props.result(response);
+            formEvent.updateFormStatus(props.action, false);
+            toast.value = {
+                message: "ارسال اطلاعات با موفقیت انجام شد",
+                type: "success",
+            };
+        })
+        .catch((e) => {
+            props.result(e);
+            formEvent.updateFormStatus(props.action, false);
+            formEvent.updateServerErrors(
+                props.action,
+                useNuxtApp().vueApp.config.globalProperties.$serverErrors(e)
+            );
+        });
+}
+
+function sendPostRequest(url, data) {
+    formEvent.updateFormStatus(props.action, true);
+    formEvent.updateServerErrors(props.action, []);
+    $axios
+        .post(url, data)
+        .then((response) => {
+            props.result(response);
+            formEvent.updateFormStatus(props.action, false);
+            toast.value = {
+                message: "ارسال اطلاعات با موفقیت انجام شد",
+                type: "success",
+            };
+        })
+        .catch((e) => {
+            props.result(e);
+            formEvent.updateFormStatus(props.action, false);
+            formEvent.updateServerErrors(
+                props.action,
+                useNuxtApp().vueApp.config.globalProperties.$serverErrors(e)
+            );
+        });
+}
+
+// set providers
 provide("addRule", addRule);
 provide("sendForm", sendForm);
 

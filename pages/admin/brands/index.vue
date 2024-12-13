@@ -9,6 +9,7 @@
     />
 </template>
 <script setup>
+import IconColumn from '~/components/Brand/IconColumn.vue';
 definePageMeta({
     layout: "admin",
     middleware: ["auth"],
@@ -24,6 +25,7 @@ const columns = [
     {
         title: "آیکون",
         value: "icon",
+        component : IconColumn
     },
     {
         title: "نام برند",

@@ -49,8 +49,6 @@ const searchForm = ref();
 
 onMounted(() => {
     nextTick().then(() => {
-        console.log(1234);
-        console.log(searchForm.value);
         searchForm.value.submitForm();
     });
 });
@@ -58,7 +56,7 @@ onMounted(() => {
 function result(response) {
     if (props.property !== undefined) {
         tableData.value = response.data[props.property];
-        trashed.value = response.data.trashCount;
+        trashCount.value = response.data.trashCount;
     }else{
         tableData.value = response.data;
     }
@@ -70,11 +68,10 @@ onMounted(() => {
     getServerData();
 });
 
-function getServerData(page = 1) {
-    $axios
-        .get(useRuntimeConfig().public.api + "/admin/categories?page=" + page)
-        .then((response) => {
-            categories.value = response.data.categories;
-        });
+function getServerData(n) {
+    page.value = n;
+    nextTick().then(() => {
+        searchForm.value.submitForm();
+    });
 }
 </script>

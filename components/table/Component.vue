@@ -30,17 +30,30 @@
                             :key="key2"
                         >
                             <template
-                                v-if="$slots[column['value']] !== undefined"
+                                v-if="column['component'] !== undefined"
+                            >
+                                <component
+                                    :is="column['component']"
+                                    :value="item[column['value']]"
+                                />
+                            </template>
+
+                            <template
+                                v-else-if="
+                                    $slots[column['value']] !== undefined
+                                "
                             >
                                 <slot :name="column['value']" :item="item" />
                             </template>
 
-                            <template v-if="typeof column['value'] == 'string'">
+                            <template
+                                v-else-if="typeof column['value'] == 'string'"
+                            >
                                 {{ item[column["value"]] }}
                             </template>
 
                             <template
-                                v-if="typeof column['value'] == 'function'"
+                                v-else-if="typeof column['value'] == 'function'"
                             >
                                 {{ column["value"](item) }}
                             </template>
@@ -83,15 +96,23 @@
                         {{ column.title }}
                     </div>
                     <div>
-                        <template v-if="$slots[column['value']] !== undefined">
+                        <template
+                            v-if="column['component'] !== undefined"
+                        >
+                            <component
+                                :is="column['component']"
+                                :value="item[column['value']]"
+                            />
+                        </template>
+                        <template v-else-if="$slots[column['value']] !== undefined">
                             <slot :name="column['value']" :item="item" />
                         </template>
 
-                        <template v-if="typeof column['value'] == 'string'">
+                        <template v-else-if="typeof column['value'] == 'string'">
                             {{ item[column["value"]] }}
                         </template>
 
-                        <template v-if="typeof column['value'] == 'function'">
+                        <template v-else-if="typeof column['value'] == 'function'">
                             {{ column["value"](item) }}
                         </template>
                     </div>
