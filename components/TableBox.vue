@@ -63,7 +63,7 @@ function result(response) {
 }
 
 const tableData = ref({ data: [] });
-const { $axios } = useNuxtApp();
+
 onMounted(() => {
     getServerData();
 });
@@ -74,4 +74,12 @@ function getServerData(n) {
         searchForm.value.submitForm();
     });
 }
+
+watch(()=> useRoute().query['trashed'],()=>{
+    trashed.value = useRoute().query['trashed'];
+    nextTick().then(() => {
+        searchForm.value.submitForm();
+    });
+});
+
 </script>

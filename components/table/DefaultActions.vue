@@ -1,25 +1,24 @@
 <template>
-     <nuxt-link
-        :to="getUpdateUrl(item)"
+    <nuxt-link
         v-if="disableEditIcon == false && trashed == false"
+        :to="getUpdateUrl()"
     >
         <fa-icon :icon="['fas', 'pen-to-square']" />
     </nuxt-link>
     <table-delete-link
+        v-if="disableDeleteIcon == false"
         :title="title"
         :trashed="trashed"
-        v-if="disableDeleteIcon == false"
-        :url="getDeleteUrl(item)"
+        :url="getDeleteUrl()"
     />
     <table-restore-link
         v-if="trashed"
         :title="title"
         :trashed="trashed"
-        :url="getRestoreUrl(item)"
+        :url="getRestoreUrl()"
     />
 </template>
 <script setup>
-import { getUpdateUrl, getDeleteUrl, getRestoreUrl } from "~/functions/table";
 const props = defineProps({
     item: {
         type: Object,
@@ -42,6 +41,30 @@ const props = defineProps({
     route: {
         type: String,
     },
-  
 });
+
+function getUpdateUrl() {
+    if (props.editUrl === undefined) {
+        return "/" + props.route + "/" + props.item.id + "/edit";
+    } else {
+        return props.editUrl.toString().replace(":id", props.item.id);
+    }
+}
+
+function getDeleteUrl() {
+    return (
+        useRuntimeConfig().public.api + "/" + props.route + "/" + props.item.id
+    );
+}
+
+function getRestoreUrl() {
+    return (
+        useRuntimeConfig().public.api +
+        "/" +
+        props.route +
+        "/" +
+        props.item.id +
+        "/restore"
+    );
+}
 </script>
