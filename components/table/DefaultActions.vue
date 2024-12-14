@@ -1,22 +1,28 @@
 <template>
-    <nuxt-link
-        v-if="disableEditIcon == false && trashed == false"
-        :to="getUpdateUrl()"
-    >
-        <fa-icon :icon="['fas', 'pen-to-square']" />
-    </nuxt-link>
-    <table-delete-link
-        v-if="disableDeleteIcon == false"
-        :title="title"
-        :trashed="trashed"
-        :url="getDeleteUrl()"
-    />
-    <table-restore-link
-        v-if="trashed"
-        :title="title"
-        :trashed="trashed"
-        :url="getRestoreUrl()"
-    />
+    <div class="d-flex">
+        <nuxt-link
+            v-if="disableEditIcon == false && trashed == false"
+            :to="getUpdateUrl()"
+        >
+            <fa-icon :icon="['fas', 'pen-to-square']" />
+        </nuxt-link>
+        <table-delete-link
+            v-if="disableDeleteIcon == false"
+            :url="getDeleteUrl()"
+            :title
+            :trashed
+            :item
+            :fetchData
+        />
+        <table-restore-link
+            v-if="trashed"
+            :url="getRestoreUrl()"
+            :title
+            :trashed
+            :item
+            :fetchData
+        />
+    </div>
 </template>
 <script setup>
 const props = defineProps({
@@ -40,6 +46,9 @@ const props = defineProps({
     },
     route: {
         type: String,
+    },
+    fetchData: {
+        type: Function,
     },
 });
 

@@ -43,7 +43,7 @@ const props = defineProps({
 });
 
 const trashCount = ref(undefined);
-const trashed = ref("false");
+const trashed = ref(false);
 const page = ref(1);
 const searchForm = ref();
 
@@ -76,7 +76,7 @@ function getServerData(n) {
 }
 
 watch(()=> useRoute().query['trashed'],()=>{
-    trashed.value = useRoute().query['trashed'];
+    trashed.value = useRoute().query['trashed'] == 'true';
     nextTick().then(() => {
         searchForm.value.submitForm();
     });

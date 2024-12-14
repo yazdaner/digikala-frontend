@@ -66,6 +66,7 @@
                                     :disableEditIcon
                                     :editUrl
                                     :route
+                                    :fetchData
                                 />
                             </div>
                         </td>
@@ -133,6 +134,7 @@
                         :disableEditIcon
                         :editUrl
                         :route
+                        :fetchData
                     />
                 </div>
             </div>
