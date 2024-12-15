@@ -7,11 +7,7 @@
                     :rules="['required']"
                     name="name"
                     id="name"
-                    :initial-value="
-                        model !== null && model !== undefined
-                            ? modal.name
-                            : null
-                    "
+                    :initialValue="model != null ? model.name : null"
                 />
             </div>
             <div class="col-md-6">
@@ -20,22 +16,19 @@
                     :rules="['required']"
                     name="en_name"
                     id="en_name"
-                    :initial-value="
-                        model !== null && model !== undefined
-                            ? modal.en_name
-                            : null
-                    "
+                    :initialValue="model != null ? model.en_name : null"
                 />
             </div>
             <div class="col-md-6">
-                <FormFileInput
-                    label="آیکون"
-                    name="icon"
-                />
+                <FormFileInput label="آیکون" name="icon" />
             </div>
         </div>
     </div>
 </template>
 <script setup>
-defineProps(["model"]);
+defineProps({
+    model: {
+        type: Object,
+    },
+});
 </script>

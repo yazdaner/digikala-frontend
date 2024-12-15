@@ -21,7 +21,8 @@
                         />
                     </li>
                     <li class="dropdown-item" v-if="trashCount !== undefined">
-                        <nuxt-link :to="'/' + route + '?trashed=true'">
+                        <nuxt-link v-if="trashed" :to="'/' + route">{{ title }}</nuxt-link>
+                        <nuxt-link v-else :to="'/' + route + '?trashed=true'">
                             سطل زباله ({{ trashCount }})
                         </nuxt-link>
                     </li>
@@ -48,10 +49,13 @@ const props = defineProps({
     trashCount: {
         type: Number,
     },
+    trashed: {
+        type: Boolean,
+    },
     route: {
         type: String,
     },
-    requestRroute: {
+    requestRoute: {
         type: String,
     },
     label: {
@@ -68,12 +72,12 @@ watch(
     () => formEvent.key,
     () => {
         loading.value =
-            formEvent.sendStatus[props.requestRroute] !== undefined
-                ? formEvent.sendStatus[props.requestRroute]
+            formEvent.sendStatus[props.requestRoute] !== undefined
+                ? formEvent.sendStatus[props.requestRoute]
                 : loading.value;
         errors.value =
-            formEvent.serverErrors[props.requestRroute] !== undefined
-                ? formEvent.serverErrors[props.requestRroute]
+            formEvent.serverErrors[props.requestRoute] !== undefined
+                ? formEvent.serverErrors[props.requestRoute]
                 : errors.value;
     }
 );

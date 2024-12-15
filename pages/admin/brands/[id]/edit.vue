@@ -1,8 +1,8 @@
 <template>
     <AdminBreadcrumb :items/>
-    <AdminPanelBox title="افزودن برند جدید" requestRoute="admin/brands">
+    <AdminPanelBox title="ویرایش برند" :requestRoute="'/admin/brands/'+id">
         <FormComponent action="admin/brands" :result="result" method="post">
-            <BrandForm />
+            <BrandForm :model="brand"/>
             <div class="w-100 my-4">
                 <FormButton design="btn-success"> ثبت </FormButton>
             </div>
@@ -15,19 +15,34 @@ definePageMeta({
     middleware: ["auth"],
 });
 
+const {$axios} = useNuxtApp();
+
+const id = useRoute().params.id;
+const brand = ref(null);
+
+onMounted(() => {
+    $axios.get(
+        useRuntimeConfig().public.api + '/admin/brands/' + id
+    ).then((response) => {
+        brand.value = response.data;
+    }).catch((error) => {
+        console.error(error);
+    });
+
+});
+
 function result(response) {
     if (response.data !== undefined && response.data.status == "ok") {
         navigateTo("/admin/brands");
     }
 }
-
 const items =[
     {
         title : 'مدیریت برند ها',
         path : '/admin/brands'
     },
     {
-        title : 'ایجاد برند',
+        title : 'ویرایش برند',
     }
 ]
 </script>

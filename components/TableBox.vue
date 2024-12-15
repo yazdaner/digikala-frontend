@@ -1,5 +1,5 @@
 <template>
-    <component :is="defaultComponent" :title :route :label :trashCount>
+    <component :is="defaultComponent" :title :route :label :trashCount :trashed>
         <FormComponent method="get" :result :action="route" ref="searchForm">
             <input type="hidden" class="c-input" name="page" :value="page" />
             <input

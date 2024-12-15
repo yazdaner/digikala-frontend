@@ -62,7 +62,19 @@ const { top, error, focusout, focus, click, validateInput } = input(
 );
 
 const addRule = inject("addRule");
+
 onMounted(() => {
+    setTimeout(() => {
+        if (props.initialValue !== undefined || props.initialValue !== null) {
+            model.value = props.initialValue;
+            if (model.value == "" || model.value == null) {
+                top.value = "13px";
+            } else {
+                top.value = "-13px";
+            }
+        }
+    }, 1500);
+
     if (props.initialValue !== undefined || props.initialValue !== null) {
         model.value = props.initialValue;
     }
