@@ -21,8 +21,6 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
-
 const modal = ref(null);
 const toast = useState("toast");
 const { $axios } = useNuxtApp();
@@ -31,12 +29,14 @@ const props = defineProps(["url", "title", "trashed", "item", "fetchData"]);
 function showModalBox() {
     modal.value.showBox();
 }
-
+const formEvent = formStore();
 function sendRequest() {
     modal.value.hideBox();
+    formEvent.updateFormStatus(props.url, true);
     $axios
         .delete(props.url)
         .then((response) => {
+            formEvent.updateFormStatus(props.url, true);
             if (response.data.status == "ok") {
             toast.value = {
                     message: "حذف با موفقیت انجام شد",
@@ -46,7 +46,8 @@ function sendRequest() {
             }
 
         })
-        .catch((e) => {            
+        .catch((e) => {
+            formEvent.updateFormStatus(props.url, true);
             toast.value = {
                 message: "خطا در اجرای درخواست",
                 type: "error",

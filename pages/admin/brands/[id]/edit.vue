@@ -1,10 +1,11 @@
 <template>
     <AdminBreadcrumb :items/>
-    <AdminPanelBox title="ویرایش برند" :requestRoute="'/admin/brands/'+id">
-        <FormComponent action="admin/brands" :result="result" method="post">
+    <AdminPanelBox title="ویرایش برند" :requestRoute="url">
+        <FormComponent :action="url" :result="result" method="post">
+            <input type="hidden" name="_method" class="c-input" value="put">
             <BrandForm :model="brand"/>
             <div class="w-100 my-4">
-                <FormButton design="btn-success"> ثبت </FormButton>
+                <FormButton design="btn-primary"> ویرایش </FormButton>
             </div>
         </FormComponent>
     </AdminPanelBox>
@@ -15,17 +16,24 @@ definePageMeta({
     middleware: ["auth"],
 });
 
+const id = useRoute().params.id;
+const url = 'admin/brands/'+id;
+
 const {$axios} = useNuxtApp();
 
-const id = useRoute().params.id;
 const brand = ref(null);
 
+const formEvent = formStore();
+
 onMounted(() => {
+    formEvent.updateFormStatus(url, true);
     $axios.get(
-        useRuntimeConfig().public.api + '/admin/brands/' + id
+        useRuntimeConfig().public.api + '/' + url
     ).then((response) => {
+        formEvent.updateFormStatus(url, false);
         brand.value = response.data;
     }).catch((error) => {
+        formEvent.updateFormStatus(url, false);
         console.error(error);
     });
 

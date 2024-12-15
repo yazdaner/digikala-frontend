@@ -63,21 +63,15 @@ const { top, error, focusout, focus, click, validateInput } = input(
 
 const addRule = inject("addRule");
 
-onMounted(() => {
-    setTimeout(() => {
-        if (props.initialValue !== undefined || props.initialValue !== null) {
-            model.value = props.initialValue;
-            if (model.value == "" || model.value == null) {
-                top.value = "13px";
-            } else {
-                top.value = "-13px";
-            }
-        }
-    }, 1500);
-
-    if (props.initialValue !== undefined || props.initialValue !== null) {
+const updateValues = () => {
+    if (props.initialValue !== undefined && props.initialValue !== null) {
         model.value = props.initialValue;
     }
+    top.value = model.value === "" || model.value === null ? "13px" : "-13px";
+};
+
+onMounted(() => {
+    updateValues();
 
     if (model.value == "" || model.value == null) {
         top.value = "13px";
@@ -89,7 +83,12 @@ onMounted(() => {
         addRule(validate);
     }
 });
-
+watch(
+    () => props.initialValue,
+    () => {
+        updateValues();
+    }
+);
 function validate() {
     return validateInput(props, model.value);
 }

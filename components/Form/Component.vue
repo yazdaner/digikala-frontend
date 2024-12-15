@@ -42,7 +42,6 @@ function sendForm() {
 }
 
 // send data for api
-import { formStore } from "~/stores/form";
 const formEvent = formStore();
 
 const toast = useState("toast");
@@ -60,7 +59,6 @@ function submitForm() {
     inputs.forEach((input) => {
         data[input.getAttribute("name")] = input.getAttribute("value");
     });
-    // console.log(data);
 
     if (props.sendFunction !== undefined) {
         props.sendFunction(data);

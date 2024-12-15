@@ -3,7 +3,10 @@
         <div
             class="card-header d-flex justify-content-between align-items-center"
         >
-            <span>{{ title }}</span>
+            <div>
+                <span v-if="trashed">سطل زباله ({{ trashCount }})</span>
+                <span v-else>{{ title }}</span>
+            </div>
             <div class="dropdown" v-if="route !== undefined">
                 <button
                     class="btn dropdown-toggle"
