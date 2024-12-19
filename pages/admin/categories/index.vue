@@ -1,38 +1,43 @@
 <template>
-    <TableComponent
-        :columns="columns"
-        :data="categories"
-        title="دسته بندی"
+    <AdminBreadcrumb :items />
+    <TableBox
+        title="مدیریت دسته بندی ها"
         route="admin/categories"
-        :fetch-data="fetchData"
+        label="دسته بندی"
+        :columns
+        property="categories"
     >
-        <!-- <template v-slot:row="{ item }">
-                <span>{{ item.icon }}</span>
-            </template> -->
-    </TableComponent>
+        <template v-slot:form>
+            <FormTextInput name="name" label="نام دسته بندی" />
+        </template>
+    </TableBox>
 </template>
 <script setup>
+// import IconColumn from "~/components/Category/IconColumn.vue";
 definePageMeta({
     layout: "admin",
     middleware: ["auth"],
 });
-const categories = ref({ data: [] });
-const { $axios } = useNuxtApp();
-onMounted(() => {
-    fetchData();
-});
-const columns = [
+
+const items = [
     {
-        title: "نام دسته",
-        value: "name",
+        title: "مدیریت دسته بندی ها",
     },
 ];
 
-function fetchData(page = 1) {
-    $axios
-        .get(useRuntimeConfig().public.api + "/admin/categories?page=" + page)
-        .then((response) => {
-            categories.value = response.data.categories;
-        });
-}
+const columns = [
+    {
+        title: "آیکون",
+        value: "icon",
+        // component: IconColumn,
+    },
+    {
+        title: "نام دسته بندی",
+        value: "name",
+    },
+    {
+        title: "اسلاگ",
+        value: "en_name",
+    },
+];
 </script>
