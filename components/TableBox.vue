@@ -8,7 +8,12 @@
                 name="trashed"
                 :value="trashed"
             />
-            <slot name="form" />
+            <div class="search-box">
+                <slot name="form" />
+                <template v-if="$slots['form']">
+                    <FormButton design="btn-success ms-3">جستوجو</FormButton>
+                </template>
+            </div>
         </FormComponent>
         <TableComponent
             :route
@@ -57,7 +62,7 @@ function result(response) {
     if (props.property !== undefined) {
         tableData.value = response.data[props.property];
         trashCount.value = response.data.trashCount;
-    }else{
+    } else {
         tableData.value = response.data;
     }
 }
@@ -75,11 +80,13 @@ function getServerData(n) {
     });
 }
 
-watch(()=> useRoute().query['trashed'],()=>{
-    trashed.value = useRoute().query['trashed'] == 'true';
-    nextTick().then(() => {
-        searchForm.value.submitForm();
-    });
-});
-
+watch(
+    () => useRoute().query["trashed"],
+    () => {
+        trashed.value = useRoute().query["trashed"] == "true";
+        nextTick().then(() => {
+            searchForm.value.submitForm();
+        });
+    }
+);
 </script>

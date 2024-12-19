@@ -186,3 +186,8 @@
     justify-content: center;
     z-index: 100;
 }
+
+.admin-panel-box .search-box{
+    display: flex;
+    align-items: center;
+}

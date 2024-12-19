@@ -6,10 +6,14 @@
         label="برند"
         :columns
         property="brands"
-    />
+    >
+        <template v-slot:form>
+            <FormTextInput name="name" label="نام برند" />
+        </template>
+    </TableBox>
 </template>
 <script setup>
-import IconColumn from '~/components/Brand/IconColumn.vue';
+import IconColumn from "~/components/Brand/IconColumn.vue";
 definePageMeta({
     layout: "admin",
     middleware: ["auth"],
@@ -25,7 +29,7 @@ const columns = [
     {
         title: "آیکون",
         value: "icon",
-        component : IconColumn
+        component: IconColumn,
     },
     {
         title: "نام برند",
