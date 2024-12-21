@@ -36,8 +36,16 @@ const columns = [
         value: "name",
     },
     {
-        title: "اسلاگ",
+        title: "en_name",
         value: "en_name",
+    },
+    {
+        title: "اسلاگ",
+        value: "slug",
+    },
+    {
+        title: "url",
+        value: "url",
     },
 ];
 </script>

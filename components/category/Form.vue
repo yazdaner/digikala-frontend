@@ -40,21 +40,41 @@
                     :initialValue="model != null ? model.url : null"
                 />
             </div>
-           <div class="d-flex align-items-center">
-            <div class="col-md-6">
-                <FormTextInput
-                    label="آیکون"
-                    name="icon"
-                    id="icon"
-                    :initialValue="model != null ? model.icon : null"
-                />
-            </div>
+            <div class="d-flex align-items-center">
+                <div class="col-md-6">
+                    <FormTextInput
+                        label="آیکون"
+                        name="icon"
+                        id="icon"
+                        :initialValue="model != null ? model.icon : null"
+                    />
+                </div>
 
-            <div class="col-md-6 ms-4">
-                <a class="color-blue" href="https://fontawesome.com/search" target="_blank">لیست آیکون ها</a>
+                <div class="col-md-6 ms-4">
+                    <a
+                        class="color-blue"
+                        href="https://fontawesome.com/search"
+                        target="_blank"
+                        >لیست آیکون ها</a
+                    >
+                </div>
             </div>
-           </div>
-
+            <div class="d-flex align-items-center">
+                <div class="col-md-6">
+                    <FormFileInput label="تصویر دسته" name="image" />
+                </div>
+                <div class="col-md-6 ms-4">
+                    <FormCheckBox
+                        label="دسته کم اهمیت"
+                        name="nonsignificant"
+                        :selected="
+                            model !== null && model !== undefined
+                                ? model.nonsignificant
+                                : false
+                        "
+                    />
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -74,7 +94,7 @@ onMounted(() => {
 function getCategoriesList() {
     const url = useRuntimeConfig().public.api + "/categories/all";
     $axios.get(url).then((response) => {
-       categories.value = response.data;
+        categories.value = response.data;
     });
 }
 </script>
