@@ -1,8 +1,8 @@
 <template>
     <div class="checkbox-div">
         <input type="checkbox" v-model="model" :id="id" />
-        <label @click="model =! model" :for="id">{{ label }}</label>
-        <input type="hidden" :name="name" :value="model" class="c-input"/>
+        <label @click="model = !model" :for="id">{{ label }}</label>
+        <input type="hidden" :name="name" :value="model" class="c-input" />
     </div>
 </template>
 <script setup>
@@ -22,11 +22,14 @@ const props = defineProps({
         type: [String, Number],
     },
 });
-onMounted(() => {
-    if (props.initialValue !== undefined || props.initialValue !== "") {
-        model.value = props.initialValue;
-    }else{
-        model.value = false;
+watch(
+    () => props.initialValue,
+    () => {
+        if (props.initialValue !== undefined && props.initialValue !== "") {
+            model.value = props.initialValue;
+        } else {
+            model.value = false;
+        }
     }
-});
+);
 </script>

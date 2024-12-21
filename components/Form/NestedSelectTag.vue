@@ -64,7 +64,7 @@
                         <fa-icon
                             :icon="['fas', 'angle-left']"
                             @click="showChildList(item)"
-                            v-if="
+                            v-if="item[props.itemValue] !== 0 &&
                                 createItemsList(item[props.itemValue]).length >
                                 0
                             "
@@ -171,7 +171,7 @@ onMounted(() => {
 });
 
 function createItemsList(value) {
-    const items = props.items.filter(item => item[props.property] == value);
+    const items = props.items.filter((item) => item[props.property] == value);
     return items;
 }
 
@@ -216,6 +216,12 @@ function findItemWithValue(value) {
 watch(
     () => props.items,
     (newItems) => {
+        if (props.initialValue !== undefined && props.initialValue != "") {
+            const item = findItemWithValue(props.initialValue);
+            if (item) {
+                selectItem(item);
+            }
+        }
         if (Array.isArray(newItems) && newItems.length > 0) {
             initValue();
         }

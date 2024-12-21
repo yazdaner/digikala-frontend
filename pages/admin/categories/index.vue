@@ -32,11 +32,11 @@ const columns = [
         // component: IconColumn,
     },
     {
-        title: "نام دسته بندی",
+        title: "نام",
         value: "name",
     },
     {
-        title: "en_name",
+        title: "نام انگلیسی",
         value: "en_name",
     },
     {
@@ -44,8 +44,19 @@ const columns = [
         value: "slug",
     },
     {
+        title: "دسته والد",
+        value: function(item){
+            if(item.parent !== null){
+                return item.parent.name;
+            }else{
+                return '-';
+            }
+        },
+    },
+    {
         title: "url",
         value: "url",
     },
+   
 ];
 </script>

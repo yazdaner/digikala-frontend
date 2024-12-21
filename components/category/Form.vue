@@ -27,7 +27,7 @@
                     item-text="name"
                     :rules="['required']"
                     :initialValue="model != null ? model.parent_id : 0"
-                    :items="[...[{ id: 0, name: 'دسته اصلی' }, ...categories]]"
+                    :items="[...[{ id: 0, name: 'دسته اصلی' ,parent_id:0}, ...categories]]"
                     property="parent_id"
                     disable-icon
                 />
@@ -67,10 +67,10 @@
                     <FormCheckBox
                         label="دسته کم اهمیت"
                         name="nonsignificant"
-                        :selected="
+                        :initialValue="
                             model !== null && model !== undefined
-                                ? model.nonsignificant
-                                : false
+                                ? (model.nonsignificant == 1)
+                                : ''
                         "
                     />
                 </div>

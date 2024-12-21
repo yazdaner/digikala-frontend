@@ -3,7 +3,7 @@
     <AdminPanelBox title="ویرایش دسته بندی" :requestRoute="url">
         <FormComponent :action="url" :result="result" method="post">
             <input type="hidden" name="_method" class="c-input" value="put">
-            <BrandForm :model="category"/>
+            <CategoryForm :model="category"/>
             <div class="w-100 my-4">
                 <FormButton design="btn-primary"> ویرایش </FormButton>
             </div>
