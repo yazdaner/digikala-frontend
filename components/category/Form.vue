@@ -33,8 +33,28 @@
                 />
             </div>
             <div class="col-md-6">
-                <FormFileInput label="آیکون" name="icon" />
+                <FormTextInput
+                    label="url دسته"
+                    name="url"
+                    id="url"
+                    :initialValue="model != null ? model.url : null"
+                />
             </div>
+           <div class="d-flex align-items-center">
+            <div class="col-md-6">
+                <FormTextInput
+                    label="آیکون"
+                    name="icon"
+                    id="icon"
+                    :initialValue="model != null ? model.icon : null"
+                />
+            </div>
+
+            <div class="col-md-6 ms-4">
+                <a class="color-blue" href="https://fontawesome.com/search" target="_blank">لیست آیکون ها</a>
+            </div>
+           </div>
+
         </div>
     </div>
 </template>

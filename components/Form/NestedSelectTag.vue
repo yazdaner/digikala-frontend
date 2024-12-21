@@ -149,6 +149,10 @@ function previousItems() {
 
 const addRule = inject("addRule");
 
+function initValue() {
+    Citems.value[listKey.value] = createItemsList(0);
+}
+
 onMounted(() => {
     if (props.initialValue !== undefined || props.initialValue !== null) {
         const item = findItemWithValue(props.initialValue);
@@ -160,20 +164,14 @@ onMounted(() => {
             }
         }
     }
-
-    Citems.value[listKey.value] = createItemsList(0);
+    initValue();
     if (addRule !== undefined) {
         addRule(validate);
     }
 });
 
 function createItemsList(value) {
-    let items = [];
-    props.items.forEach((item) => {
-        if (item[props.property] == value) {
-            items.push(item);
-        }
-    });
+    const items = props.items.filter(item => item[props.property] == value);
     return items;
 }
 
@@ -217,13 +215,9 @@ function findItemWithValue(value) {
 
 watch(
     () => props.items,
-    () => {
-        if (props.initialValue !== undefined && props.initialValue !== null) {
-            const item = findItemWithValue(props.initialValue);
-            if (item) {
-                selectItem(item);
-            }
-            Citems.value = [listKey.value] = createItemsList(0);
+    (newItems) => {
+        if (Array.isArray(newItems) && newItems.length > 0) {
+            initValue();
         }
     }
 );
