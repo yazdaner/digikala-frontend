@@ -2,7 +2,7 @@
     <AdminBreadcrumb :items/>
     <AdminPanelBox title="افزودن دسته بندی جدید" requestRoute="admin/categories">
         <FormComponent action="admin/categories" :result="result" method="post">
-            <BrandForm />
+            <CategoryForm />
             <div class="w-100 my-4">
                 <FormButton design="btn-success"> ثبت </FormButton>
             </div>

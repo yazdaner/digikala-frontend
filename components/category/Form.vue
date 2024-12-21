@@ -20,6 +20,19 @@
                 />
             </div>
             <div class="col-md-6">
+                <FormNestedSelectTag
+                    label="انتخاب سر دسته"
+                    name="parent_id"
+                    item-value="id"
+                    item-text="name"
+                    :rules="['required']"
+                    :initialValue="model != null ? model.parent_id : 0"
+                    :items="[...[{ id: 0, name: 'دسته اصلی' }, ...categories]]"
+                    property="parent_id"
+                    disable-icon
+                />
+            </div>
+            <div class="col-md-6">
                 <FormFileInput label="آیکون" name="icon" />
             </div>
         </div>
@@ -31,4 +44,17 @@ defineProps({
         type: Object,
     },
 });
+const { $axios } = useNuxtApp();
+const categories = ref([]);
+
+onMounted(() => {
+    getCategoriesList();
+});
+
+function getCategoriesList() {
+    const url = useRuntimeConfig().public.api + "/categories/all";
+    $axios.get(url).then((response) => {
+       categories.value = response.data;
+    });
+}
 </script>
